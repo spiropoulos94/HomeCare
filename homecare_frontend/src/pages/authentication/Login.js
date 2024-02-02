@@ -1,5 +1,6 @@
 import { Grid, Stack, Typography } from '@mui/material';
 import AuthWrapper from './AuthWrapper';
+import AuthLogin from './auth-forms/AuthLogin';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
           </Stack>
         </Grid>
         <Grid item xs={12}>
-          {/* <AuthLogin /> */}
+          <AuthLogin />
         </Grid>
       </Grid>
     </AuthWrapper>
