@@ -1,0 +1,29 @@
+version: "3"
+services:
+  homecare_frontend:
+    image: node:14
+    container_name: homecare_frontend
+    working_dir: /app
+    volumes:
+      - ./homecare_frontend:/app
+    ports:
+      - "3000:3000"
+    command: npm start
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
+
+  # homecare_backend:
+  #   image: golang:latest
+  #   container_name: homecare_backend
+  #   working_dir: /app
+  #   volumes:
+  #     - ./homecare_backend:/app
+  #   ports:
+  #     - "8080:8080"
+  #   command: go run main.go
+  #   environment:
+  #     - GO_ENV=development
+  #   stdin_open: true
+  #   tty: true
