@@ -18,7 +18,7 @@ const DrawerHeader = ({ open }) => {
     <DrawerHeaderStyled theme={theme} open={open}>
       <Stack direction="row" spacing={1} alignItems="center">
         {/* <Logo /> */}
-        <h1>Logo</h1>
+        <h3>HomeCare</h3>
         <Chip
           label={process.env.REACT_APP_VERSION}
           size="small"
