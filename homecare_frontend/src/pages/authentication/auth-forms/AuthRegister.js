@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 
 // material-ui
 import {
@@ -7,7 +6,6 @@ import {
   FormControl,
   FormHelperText,
   Grid,
-  Link,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -57,14 +55,20 @@ const AuthRegister = () => {
         initialValues={{
           firstname: '',
           lastname: '',
+          afm: '',
+          amka: '',
+          profession: '',
           email: '',
-          company: '',
           password: '',
+
           submit: null
         }}
         validationSchema={Yup.object().shape({
           firstname: Yup.string().max(255).required('First Name is required'),
           lastname: Yup.string().max(255).required('Last Name is required'),
+          afm: Yup.string().max(255).required('AFM is required'),
+          amka: Yup.string().max(255).required('AMKA is required'),
+          profession: Yup.string().max(255).required('Profession is required'),
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
           password: Yup.string().max(255).required('Password is required')
         })}
@@ -126,23 +130,65 @@ const AuthRegister = () => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="company-signup">Company</InputLabel>
+                  <InputLabel htmlFor="afm-signup">AFM</InputLabel>
                   <OutlinedInput
                     fullWidth
-                    error={Boolean(touched.company && errors.company)}
-                    id="company-signup"
-                    value={values.company}
-                    name="company"
+                    error={Boolean(touched.afm && errors.afm)}
+                    id="afm-signup"
+                    value={values.afm}
+                    name="afm"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="Demo Inc."
+                    placeholder="12345678910"
                     inputProps={{}}
                   />
-                  {touched.company && errors.company && (
-                    <FormHelperText error id="helper-text-company-signup">
-                      {errors.company}
+                  {touched.afm && errors.afm && (
+                    <FormHelperText error id="helper-text-afm-signup">
+                      {errors.afm}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="amka-signup">AMKA</InputLabel>
+                  <OutlinedInput
+                    fullWidth
+                    error={Boolean(touched.amka && errors.amka)}
+                    id="amka-signup"
+                    value={values.amka}
+                    name="amka"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="12345678910"
+                    inputProps={{}}
+                  />
+                  {touched.amka && errors.amka && (
+                    <FormHelperText error id="helper-text-amka-signup">
+                      {errors.amka}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
+              <Grid item xs={12}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="profession-signup">Profession</InputLabel>
+                  <OutlinedInput
+                    fullWidth
+                    error={Boolean(touched.profession && errors.profession)}
+                    id="profession-signup"
+                    value={values.profession}
+                    name="profession"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="e.g. Nurse"
+                    inputProps={{}}
+                  />
+                  {touched.profession && errors.profession && (
+                    <FormHelperText error id="helper-text-profession-signup">
+                      {errors.profession}
                     </FormHelperText>
                   )}
                 </Stack>
@@ -159,7 +205,7 @@ const AuthRegister = () => {
                     name="email"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="demo@company.com"
+                    placeholder="demo@afm.com"
                     inputProps={{}}
                   />
                   {touched.email && errors.email && (
@@ -219,7 +265,7 @@ const AuthRegister = () => {
                   </Grid>
                 </FormControl>
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <Typography variant="body2">
                   By Signing up, you agree to our &nbsp;
                   <Link variant="subtitle2" component={RouterLink} to="#">
@@ -230,7 +276,7 @@ const AuthRegister = () => {
                     Privacy Policy
                   </Link>
                 </Typography>
-              </Grid>
+              </Grid> */}
               {errors.submit && (
                 <Grid item xs={12}>
                   <FormHelperText error>{errors.submit}</FormHelperText>
