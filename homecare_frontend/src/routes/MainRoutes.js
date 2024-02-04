@@ -18,7 +18,11 @@ const MainRoutes = {
   element: <MainLayout />,
   children: [
     {
-      path: 'sample-page',
+      path: '/',
+      element: <SamplePage />
+    },
+    {
+      path: '/sample-page',
       element: <SamplePage />
     },
     {

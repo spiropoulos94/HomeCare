@@ -26,7 +26,7 @@ const AuthWrapper = ({ children }) => (
     >
       <Grid item xs={12} sx={{ ml: 3, mt: 3 }}>
         {/* <Logo /> */}
-        <h1>Logo</h1>
+        <h1>HomeCare</h1>
       </Grid>
       <Grid item xs={12}>
         <Grid
