@@ -10,6 +10,7 @@ import MainLayout from 'layout/MainLayout';
 // render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/SamplePage')));
 const SamplePageNew = Loadable(lazy(() => import('pages/SamplePageNew')));
+const PatientsPage = Loadable(lazy(() => import('pages/patients')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -24,6 +25,10 @@ const MainRoutes = {
     {
       path: '/sample-page',
       element: <SamplePage />
+    },
+    {
+      path: '/patients',
+      element: <PatientsPage />
     },
     {
       path: 'sample-page-new',
