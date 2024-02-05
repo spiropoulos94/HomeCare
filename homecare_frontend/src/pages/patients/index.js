@@ -1,21 +1,37 @@
-// ==============================|| PATIENTS - DEFAULT ||============================== //
+// ==============================|| PATIENTS  ||============================== //
 
-import { Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
+import PatientsGridTable from './PatientsGridTable';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPatients, getPatientsError, getPatientsStatus, selectAllpatients } from 'store/reducers/patientsSlice';
+import { alertError } from 'utils/toast';
 
-const DashboardDefault = () => {
+const Patients = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPatients());
+  }, [dispatch]);
+
+  const patients = useSelector(selectAllpatients);
+  const patientsError = useSelector(getPatientsError);
+  const patientsStatus = useSelector(getPatientsStatus);
+
+  console.log({ patients, patientsError, patientsStatus });
+
+  useEffect(() => {
+    if (patientsError) {
+      alertError(patientsError);
+    }
+  }, [patientsError]);
+
   return (
     <>
       <MainCard title="Patients">
-        <Typography variant="body2">
-          Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie magna alissa. Ut enif ad
-          minim venice, quin nostrum exercitation illampu laborings nisi ut liquid ex ea commons construal. Duos aube grue dolor in
-          reprehended in voltage veil esse colum doolie eu fujian bulla parian. Exceptive sin ocean cuspidate non president, sunk in culpa
-          qui officiate descent molls anim id est labours.
-        </Typography>
+        <PatientsGridTable isLoading={patientsStatus === 'loading'} data={patients} />
       </MainCard>
     </>
   );
 };
 
-export default DashboardDefault;
+export default Patients;

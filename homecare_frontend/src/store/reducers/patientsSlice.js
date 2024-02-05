@@ -36,7 +36,7 @@ const patients = createSlice({
   }
 });
 
-export const selectAllpatients = (state) => state.patients;
+export const selectAllpatients = (state) => state.patients.patients;
 export const getPatientsError = (state) => state.patients.error;
 export const getPatientsStatus = (state) => state.patients.status;
 
