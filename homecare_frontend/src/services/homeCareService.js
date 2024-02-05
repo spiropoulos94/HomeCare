@@ -1,5 +1,5 @@
 import { setupApiInstance } from './api';
-// import patientsMockData from '../mockData/patients.json';
+import patientsMockData from '../mockData/patients.json';
 
 const BackendClient = setupApiInstance({
   baseURL: `https://localhost:8080`, // this is a proxy to the narrowin server
@@ -33,4 +33,12 @@ export const makeRequest = async (method, endpoint, bodyParams = {}, additionalP
 export const getPatientsList = async (bodyParams = { test: '123' }) => {
   const endpoint = 'api/patients';
   return await makeRequest('POST', endpoint, bodyParams);
+};
+
+export const getPatientsMock = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(patientsMockData);
+    }, 1000);
+  });
 };
