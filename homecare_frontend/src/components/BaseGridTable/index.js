@@ -52,6 +52,8 @@ export default function BaseGridTable({
       density="comfortable"
       sx={{
         ...sx,
+        maxWidth: (theme) => theme.breakpoints.values.lg,
+        margin: 'auto',
         '& .MuiDataGrid-columnHeaderTitle': {
           fontWeight: (theme) => theme.typography.fontWeightBold
         },

@@ -2,23 +2,23 @@ import { Box } from '@mui/material';
 
 export const columns = [
   { field: 'id', headerName: 'ID', width: 10 },
-  { field: 'first_name', headerName: 'Name', flex: 1 },
-  { field: 'last_name', headerName: 'Surname', flex: 1 },
-  { field: 'AMKA', headerName: 'AMKA', flex: 1 },
+  { field: 'first_name', headerName: 'Name', width: 150 },
+  { field: 'last_name', headerName: 'Surname', width: 150 },
+  { field: 'AMKA', headerName: 'AMKA', width: 150 },
   {
     field: 'address',
     headerName: 'Address',
-    flex: 1,
+    width: 150,
     renderCell: () => {
       return <Box>Address</Box>;
     }
   },
-  { field: 'phone', headerName: 'Phone', flex: 1 },
-  { field: 'healthSecurityNumber', headerName: 'Health Security Nr', flex: 1 }
+  { field: 'phone', headerName: 'Phone', width: 150 },
+  { field: 'healthSecurityNumber', headerName: 'Health Security Nr', width: 150 }
   // {
   //   field: 'action',
   //   headerName: 'Action',
-  //   flex: 1,
+  //   width:150,
   //   renderCell: () => {
   //     return (
   //       <Box>
