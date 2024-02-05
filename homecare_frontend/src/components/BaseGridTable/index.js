@@ -11,8 +11,8 @@ export default function BaseGridTable({
   columns,
   handleProcessRowUpdate,
   isLoading,
-  deleteItemFunc = null,
-  refreshData = null,
+  deleteItemFunc = () => {},
+  refreshData = () => {},
   hideToolbar = false,
   sx
 }) {
@@ -37,7 +37,9 @@ export default function BaseGridTable({
       await deleteItemFunc(item);
     }
 
-    refreshData();
+    if (refreshData) {
+      refreshData();
+    }
   };
 
   const colsWithRefetch = columns.map((c) => {
