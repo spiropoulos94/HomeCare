@@ -11,7 +11,6 @@ const PatientsGridTable = ({ data = [], isLoading = false, failedSearchTerm = ''
       failedSearchTerm={failedSearchTerm}
       refreshData={refreshData}
       hideToolbar={false}
-      sx={{ border: 2, borderColor: 'red' }}
     />
   );
 };

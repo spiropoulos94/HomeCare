@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Box from '@mui/material/Box';
 import { DataGrid, useGridApiRef } from '@mui/x-data-grid';
 import { alertError } from 'utils/toast';
 import CustomToolbar from './CustomToolbar';
@@ -49,44 +48,65 @@ export default function BaseGridTable({
   });
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <DataGrid
-        density="comfortable"
-        sx={{ ...sx, borderRadius: 0 }}
-        autoHeight
-        loading={isLoading}
-        apiRef={apiRef}
-        slots={{
-          toolbar: hideToolbar ? null : CustomToolbar,
-          noRowsOverlay: () => <p>No rows found</p>
-        }}
-        slotProps={{
-          toolbar: {
-            setSelectMultiple,
-            rowSelectionModel,
-            batchDelete: batchDeleteFunc
+    <DataGrid
+      density="comfortable"
+      sx={{
+        ...sx,
+        '& .MuiDataGrid-columnHeaderTitle': {
+          fontWeight: (theme) => theme.typography.fontWeightBold
+        },
+        '& .MuiDataGrid-toolbarContainer': {
+          border: 1,
+          borderColor: (theme) => theme.palette.divider,
+          py: (theme) => theme.spacing(2)
+        },
+        '& .MuiDataGrid-columnHeaders': {
+          border: 1,
+          borderTop: 0,
+          borderColor: (theme) => theme.palette.divider
+        },
+        '& .MuiDataGrid-row': {
+          border: 1,
+          borderColor: (theme) => theme.palette.divider
+        },
+        '& .MuiDataGrid-main': {
+          border: 1,
+          borderColor: (theme) => theme.palette.divider
+        }
+      }}
+      autoHeight
+      loading={isLoading}
+      apiRef={apiRef}
+      slots={{
+        toolbar: hideToolbar ? null : CustomToolbar,
+        noRowsOverlay: () => <p>No rows found</p>
+      }}
+      slotProps={{
+        toolbar: {
+          setSelectMultiple,
+          rowSelectionModel,
+          batchDelete: batchDeleteFunc
+        }
+      }}
+      rows={data}
+      columns={colsWithRefetch}
+      checkboxSelection={selectMultiple}
+      onRowSelectionModelChange={(ids) => {
+        setRowSelectionModel(ids);
+      }}
+      initialState={{
+        pagination: {
+          paginationModel: {
+            pageSize: 10
           }
-        }}
-        rows={data}
-        columns={colsWithRefetch}
-        checkboxSelection={selectMultiple}
-        onRowSelectionModelChange={(ids) => {
-          setRowSelectionModel(ids);
-        }}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 10
-            }
-          }
-        }}
-        pageSizeOptions={[5, 10, 20, 40, 50]}
-        disableRowSelectionOnClick
-        processRowUpdate={(updatedRow, originalRow) => handleProcessRowUpdate(updatedRow, originalRow)}
-        onProcessRowUpdateError={(error) => alertError(error)}
-        onCellEditStop={(params, event) => cancelCellEditOnFocusOut(params, event)}
-      />
-    </Box>
+        }
+      }}
+      pageSizeOptions={[5, 10, 20, 40, 50]}
+      disableRowSelectionOnClick
+      processRowUpdate={(updatedRow, originalRow) => handleProcessRowUpdate(updatedRow, originalRow)}
+      onProcessRowUpdateError={(error) => alertError(error)}
+      onCellEditStop={(params, event) => cancelCellEditOnFocusOut(params, event)}
+    />
   );
 }
 
