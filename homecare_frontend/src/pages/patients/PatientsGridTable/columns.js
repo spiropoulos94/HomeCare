@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 export const columns = [
-  { field: 'id', headerName: 'ID', width: 10 },
+  { field: 'id', headerName: 'ID', width: 90 },
   { field: 'first_name', headerName: 'Name', width: 150 },
   { field: 'last_name', headerName: 'Surname', width: 150 },
   { field: 'AMKA', headerName: 'AMKA', width: 150 },
@@ -9,8 +9,12 @@ export const columns = [
     field: 'address',
     headerName: 'Address',
     width: 150,
-    renderCell: () => {
-      return <Box>Address</Box>;
+    renderCell: ({ value }) => {
+      return (
+        <Box>
+          {value.street} {value.number}
+        </Box>
+      );
     }
   },
   { field: 'phone', headerName: 'Phone', width: 150 },

@@ -29,7 +29,7 @@ const ControlsPopover = ({ batchDelete, rowSelectionModel }) => {
 
   return (
     <Box sx={{ ml: 'auto' }}>
-      <IconButton aria-describedby={id} variant="contained" onClick={handleClick}>
+      <IconButton color="primary" aria-describedby={id} variant="contained" onClick={handleClick}>
         <ListIcon fontSize="large" />
       </IconButton>
       <Popover
