@@ -6,6 +6,8 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 // ============================|| PATIENT - FORM ||============================ //
 
 const PatientForm = ({ patientData }) => {
@@ -224,6 +226,10 @@ const PatientForm = ({ patientData }) => {
       </Formik>
     </>
   );
+};
+
+PatientForm.propTypes = {
+  patientData: PropTypes.object
 };
 
 export default PatientForm;
