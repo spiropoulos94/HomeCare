@@ -27,7 +27,7 @@ const patients = createSlice({
       .addCase(fetchPatients.fulfilled, (state, action) => {
         state.status = 'succeeded';
         // Add any fetched patients to the array
-        state.patients = state.patients.concat(action.payload);
+        state.patients = action.payload;
       })
       .addCase(fetchPatients.rejected, (state, action) => {
         state.status = 'failed';

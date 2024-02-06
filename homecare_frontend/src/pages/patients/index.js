@@ -18,7 +18,7 @@ const Patients = () => {
     if (!patients.length) {
       dispatch(fetchPatients());
     }
-  }, [dispatch]);
+  }, [dispatch, patients.length]);
 
   useEffect(() => {
     if (patientsError) {

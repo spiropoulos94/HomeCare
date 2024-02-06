@@ -135,5 +135,6 @@ BaseGridTable.propTypes = {
   deleteItemFunc: PropTypes.func,
   refreshData: PropTypes.func,
   hideToolbar: PropTypes.bool,
+  onRowClick: PropTypes.func,
   sx: PropTypes.object
 };

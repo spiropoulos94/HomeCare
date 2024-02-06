@@ -1,15 +1,30 @@
 // material-ui
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPatients, selectAllpatients } from 'store/reducers/patientsSlice';
+import MainCard from 'components/MainCard';
+import Loader from 'components/Loader';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const PatientProfile = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log({ id });
+  const dispatch = useDispatch();
+  const { state } = useLocation();
+
+  const patients = useSelector(selectAllpatients);
+
+  if (!patients.length) {
+    dispatch(fetchPatients());
+  }
+
+  // if locationState is available use it, else fetch all patients and select the right one
+  let patientData = state ? state : patients.find((p) => p.id == id);
+
   return (
     <>
       <Box sx={{ width: '100%', display: 'flex', mb: (theme) => theme.spacing(2) }}>
@@ -18,7 +33,7 @@ const PatientProfile = () => {
         </Button>
       </Box>
 
-      {/* {patientData && (
+      {patientData ? (
         <MainCard title={`Patient ${id} Profile - ${patientData.first_name} ${patientData.last_name}`}>
           <Typography variant="body2">
             Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie magna alissa. Ut enif
@@ -27,7 +42,9 @@ const PatientProfile = () => {
             qui officiate descent molls anim id est labours.
           </Typography>
         </MainCard>
-      )} */}
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };
