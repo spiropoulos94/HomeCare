@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "first_name": "Viole",
-    "last_name": "Prahm",
+    "firstName": "Viole",
+    "lastName": "Prahm",
     "AMKA": "2425733485",
     "address": {
       "street": "Fake Street",
@@ -13,8 +13,8 @@
   },
   {
     "id": 2,
-    "first_name": "Kaylee",
-    "last_name": "Playle",
+    "firstName": "Kaylee",
+    "lastName": "Playle",
     "AMKA": "5833434157",
     "address": {
       "street": "Fake Street",
@@ -25,8 +25,8 @@
   },
   {
     "id": 3,
-    "first_name": "Ericka",
-    "last_name": "Ingram",
+    "firstName": "Ericka",
+    "lastName": "Ingram",
     "AMKA": "9205640255",
     "address": {
       "street": "Fake Street",
@@ -37,8 +37,8 @@
   },
   {
     "id": 4,
-    "first_name": "Crosby",
-    "last_name": "Stapforth",
+    "firstName": "Crosby",
+    "lastName": "Stapforth",
     "AMKA": "7622361968",
     "address": {
       "street": "Fake Street",
@@ -49,8 +49,8 @@
   },
   {
     "id": 5,
-    "first_name": "Dasi",
-    "last_name": "Kitchingham",
+    "firstName": "Dasi",
+    "lastName": "Kitchingham",
     "AMKA": "3506867377",
     "address": {
       "street": "Fake Street",
@@ -61,8 +61,8 @@
   },
   {
     "id": 6,
-    "first_name": "Maude",
-    "last_name": "Edie",
+    "firstName": "Maude",
+    "lastName": "Edie",
     "AMKA": "5269082144",
     "address": {
       "street": "Fake Street",
@@ -73,8 +73,8 @@
   },
   {
     "id": 7,
-    "first_name": "Tawsha",
-    "last_name": "Hardwin",
+    "firstName": "Tawsha",
+    "lastName": "Hardwin",
     "AMKA": "4599146382",
     "address": {
       "street": "Fake Street",
@@ -85,8 +85,8 @@
   },
   {
     "id": 8,
-    "first_name": "Netti",
-    "last_name": "Salan",
+    "firstName": "Netti",
+    "lastName": "Salan",
     "AMKA": "4747508384",
     "address": {
       "street": "Fake Street",
@@ -97,8 +97,8 @@
   },
   {
     "id": 9,
-    "first_name": "Weider",
-    "last_name": "McGaffey",
+    "firstName": "Weider",
+    "lastName": "McGaffey",
     "AMKA": "4538447498",
     "address": {
       "street": "Fake Street",
@@ -109,8 +109,8 @@
   },
   {
     "id": 10,
-    "first_name": "Timmi",
-    "last_name": "Trenbay",
+    "firstName": "Timmi",
+    "lastName": "Trenbay",
     "AMKA": "4509757719",
     "address": {
       "street": "Fake Street",
@@ -121,8 +121,8 @@
   },
   {
     "id": 11,
-    "first_name": "Cloe",
-    "last_name": "Burdess",
+    "firstName": "Cloe",
+    "lastName": "Burdess",
     "AMKA": "9897122222",
     "address": {
       "street": "Fake Street",
@@ -133,8 +133,8 @@
   },
   {
     "id": 12,
-    "first_name": "Huey",
-    "last_name": "Llewelly",
+    "firstName": "Huey",
+    "lastName": "Llewelly",
     "AMKA": "2065668350",
     "address": {
       "street": "Fake Street",
@@ -145,8 +145,8 @@
   },
   {
     "id": 13,
-    "first_name": "Iggie",
-    "last_name": "Longbothom",
+    "firstName": "Iggie",
+    "lastName": "Longbothom",
     "AMKA": "0637393309",
     "address": {
       "street": "Fake Street",
@@ -157,8 +157,8 @@
   },
   {
     "id": 14,
-    "first_name": "Mimi",
-    "last_name": "Landsman",
+    "firstName": "Mimi",
+    "lastName": "Landsman",
     "AMKA": "6261408602",
     "address": {
       "street": "Fake Street",
@@ -169,8 +169,8 @@
   },
   {
     "id": 15,
-    "first_name": "Rock",
-    "last_name": "Baress",
+    "firstName": "Rock",
+    "lastName": "Baress",
     "AMKA": "6544774693",
     "address": {
       "street": "Fake Street",
@@ -181,8 +181,8 @@
   },
   {
     "id": 16,
-    "first_name": "Meier",
-    "last_name": "Gebhardt",
+    "firstName": "Meier",
+    "lastName": "Gebhardt",
     "AMKA": "7348993826",
     "address": {
       "street": "Fake Street",
@@ -193,8 +193,8 @@
   },
   {
     "id": 17,
-    "first_name": "Fax",
-    "last_name": "Hartrick",
+    "firstName": "Fax",
+    "lastName": "Hartrick",
     "AMKA": "4499980437",
     "address": {
       "street": "Fake Street",
@@ -205,8 +205,8 @@
   },
   {
     "id": 18,
-    "first_name": "Veronike",
-    "last_name": "Rasmus",
+    "firstName": "Veronike",
+    "lastName": "Rasmus",
     "AMKA": "9193794886",
     "address": {
       "street": "Fake Street",
@@ -217,8 +217,8 @@
   },
   {
     "id": 19,
-    "first_name": "Seward",
-    "last_name": "Spearett",
+    "firstName": "Seward",
+    "lastName": "Spearett",
     "AMKA": "1349663832",
     "address": {
       "street": "Fake Street",
@@ -229,8 +229,8 @@
   },
   {
     "id": 20,
-    "first_name": "Idalina",
-    "last_name": "Spadollini",
+    "firstName": "Idalina",
+    "lastName": "Spadollini",
     "AMKA": "1932399003",
     "address": {
       "street": "Fake Street",
@@ -241,8 +241,8 @@
   },
   {
     "id": 21,
-    "first_name": "Katrinka",
-    "last_name": "Dockreay",
+    "firstName": "Katrinka",
+    "lastName": "Dockreay",
     "AMKA": "9619923456",
     "address": {
       "street": "Fake Street",
@@ -253,8 +253,8 @@
   },
   {
     "id": 22,
-    "first_name": "Stephani",
-    "last_name": "Lemery",
+    "firstName": "Stephani",
+    "lastName": "Lemery",
     "AMKA": "5998158954",
     "address": {
       "street": "Fake Street",
@@ -265,8 +265,8 @@
   },
   {
     "id": 23,
-    "first_name": "Dian",
-    "last_name": "De la Yglesia",
+    "firstName": "Dian",
+    "lastName": "De la Yglesia",
     "AMKA": "4446734318",
     "address": {
       "street": "Fake Street",
@@ -277,8 +277,8 @@
   },
   {
     "id": 24,
-    "first_name": "Heida",
-    "last_name": "Jonuzi",
+    "firstName": "Heida",
+    "lastName": "Jonuzi",
     "AMKA": "6715116164",
     "address": {
       "street": "Fake Street",
@@ -289,8 +289,8 @@
   },
   {
     "id": 25,
-    "first_name": "Saul",
-    "last_name": "Gettens",
+    "firstName": "Saul",
+    "lastName": "Gettens",
     "AMKA": "1429626461",
     "address": {
       "street": "Fake Street",
@@ -301,8 +301,8 @@
   },
   {
     "id": 26,
-    "first_name": "Merrily",
-    "last_name": "Ivanshintsev",
+    "firstName": "Merrily",
+    "lastName": "Ivanshintsev",
     "AMKA": "6472094446",
     "address": {
       "street": "Fake Street",
@@ -313,8 +313,8 @@
   },
   {
     "id": 27,
-    "first_name": "Erroll",
-    "last_name": "Oertzen",
+    "firstName": "Erroll",
+    "lastName": "Oertzen",
     "AMKA": "7768142314",
     "address": {
       "street": "Fake Street",
@@ -325,8 +325,8 @@
   },
   {
     "id": 28,
-    "first_name": "Lauree",
-    "last_name": "Eddie",
+    "firstName": "Lauree",
+    "lastName": "Eddie",
     "AMKA": "3945219078",
     "address": {
       "street": "Fake Street",
@@ -337,8 +337,8 @@
   },
   {
     "id": 29,
-    "first_name": "Gilemette",
-    "last_name": "Corten",
+    "firstName": "Gilemette",
+    "lastName": "Corten",
     "AMKA": "9601917985",
     "address": {
       "street": "Fake Street",
@@ -349,8 +349,8 @@
   },
   {
     "id": 30,
-    "first_name": "Coleman",
-    "last_name": "Twort",
+    "firstName": "Coleman",
+    "lastName": "Twort",
     "AMKA": "5651729852",
     "address": {
       "street": "Fake Street",
@@ -361,8 +361,8 @@
   },
   {
     "id": 31,
-    "first_name": "Magda",
-    "last_name": "Karpfen",
+    "firstName": "Magda",
+    "lastName": "Karpfen",
     "AMKA": "0633210455",
     "address": {
       "street": "Fake Street",
@@ -373,8 +373,8 @@
   },
   {
     "id": 32,
-    "first_name": "Marnia",
-    "last_name": "Alben",
+    "firstName": "Marnia",
+    "lastName": "Alben",
     "AMKA": "0426502043",
     "address": {
       "street": "Fake Street",
@@ -385,8 +385,8 @@
   },
   {
     "id": 33,
-    "first_name": "Keith",
-    "last_name": "Powelee",
+    "firstName": "Keith",
+    "lastName": "Powelee",
     "AMKA": "8961966847",
     "address": {
       "street": "Fake Street",
@@ -397,8 +397,8 @@
   },
   {
     "id": 34,
-    "first_name": "Iago",
-    "last_name": "Bohea",
+    "firstName": "Iago",
+    "lastName": "Bohea",
     "AMKA": "2907939343",
     "address": {
       "street": "Fake Street",
@@ -409,8 +409,8 @@
   },
   {
     "id": 35,
-    "first_name": "Petey",
-    "last_name": "Cressar",
+    "firstName": "Petey",
+    "lastName": "Cressar",
     "AMKA": "7962847263",
     "address": {
       "street": "Fake Street",
@@ -421,8 +421,8 @@
   },
   {
     "id": 36,
-    "first_name": "Mirabel",
-    "last_name": "Szymanzyk",
+    "firstName": "Mirabel",
+    "lastName": "Szymanzyk",
     "AMKA": "7105620498",
     "address": {
       "street": "Fake Street",
@@ -433,8 +433,8 @@
   },
   {
     "id": 37,
-    "first_name": "Reagen",
-    "last_name": "Josefs",
+    "firstName": "Reagen",
+    "lastName": "Josefs",
     "AMKA": "7473639021",
     "address": {
       "street": "Fake Street",
@@ -445,8 +445,8 @@
   },
   {
     "id": 38,
-    "first_name": "Mariele",
-    "last_name": "Kubica",
+    "firstName": "Mariele",
+    "lastName": "Kubica",
     "AMKA": "0288703693",
     "address": {
       "street": "Fake Street",
@@ -457,8 +457,8 @@
   },
   {
     "id": 39,
-    "first_name": "Celestia",
-    "last_name": "Meere",
+    "firstName": "Celestia",
+    "lastName": "Meere",
     "AMKA": "7171959902",
     "address": {
       "street": "Fake Street",
@@ -469,8 +469,8 @@
   },
   {
     "id": 40,
-    "first_name": "Kelby",
-    "last_name": "Treharne",
+    "firstName": "Kelby",
+    "lastName": "Treharne",
     "AMKA": "8000121794",
     "address": {
       "street": "Fake Street",
@@ -481,8 +481,8 @@
   },
   {
     "id": 41,
-    "first_name": "Drusie",
-    "last_name": "Wewell",
+    "firstName": "Drusie",
+    "lastName": "Wewell",
     "AMKA": "1749381060",
     "address": {
       "street": "Fake Street",
@@ -493,8 +493,8 @@
   },
   {
     "id": 42,
-    "first_name": "Issy",
-    "last_name": "Fernando",
+    "firstName": "Issy",
+    "lastName": "Fernando",
     "AMKA": "7333825191",
     "address": {
       "street": "Fake Street",
@@ -505,8 +505,8 @@
   },
   {
     "id": 43,
-    "first_name": "Maryanna",
-    "last_name": "Hoffmann",
+    "firstName": "Maryanna",
+    "lastName": "Hoffmann",
     "AMKA": "5834267750",
     "address": {
       "street": "Fake Street",
@@ -517,8 +517,8 @@
   },
   {
     "id": 44,
-    "first_name": "Devon",
-    "last_name": "Taillard",
+    "firstName": "Devon",
+    "lastName": "Taillard",
     "AMKA": "5197309482",
     "address": {
       "street": "Fake Street",
@@ -529,8 +529,8 @@
   },
   {
     "id": 45,
-    "first_name": "Lilli",
-    "last_name": "Dressel",
+    "firstName": "Lilli",
+    "lastName": "Dressel",
     "AMKA": "8929160077",
     "address": {
       "street": "Fake Street",
@@ -541,8 +541,8 @@
   },
   {
     "id": 46,
-    "first_name": "Rockwell",
-    "last_name": "Jaxon",
+    "firstName": "Rockwell",
+    "lastName": "Jaxon",
     "AMKA": "2033284867",
     "address": {
       "street": "Fake Street",
@@ -553,8 +553,8 @@
   },
   {
     "id": 47,
-    "first_name": "Chrissie",
-    "last_name": "Heartfield",
+    "firstName": "Chrissie",
+    "lastName": "Heartfield",
     "AMKA": "6260581378",
     "address": {
       "street": "Fake Street",
@@ -565,8 +565,8 @@
   },
   {
     "id": 48,
-    "first_name": "Thorstein",
-    "last_name": "Stewart",
+    "firstName": "Thorstein",
+    "lastName": "Stewart",
     "AMKA": "9624398933",
     "address": {
       "street": "Fake Street",
@@ -577,8 +577,8 @@
   },
   {
     "id": 49,
-    "first_name": "Nadeen",
-    "last_name": "Ashbrook",
+    "firstName": "Nadeen",
+    "lastName": "Ashbrook",
     "AMKA": "3879142459",
     "address": {
       "street": "Fake Street",
@@ -589,8 +589,8 @@
   },
   {
     "id": 50,
-    "first_name": "Vladimir",
-    "last_name": "Howells",
+    "firstName": "Vladimir",
+    "lastName": "Howells",
     "AMKA": "6771809277",
     "address": {
       "street": "Fake Street",
