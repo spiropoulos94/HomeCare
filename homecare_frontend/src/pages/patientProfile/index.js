@@ -27,8 +27,6 @@ const PatientProfile = () => {
   // if locationState is available use it, else fetch all patients and select the right one
   let patientData = state ? state : patients.find((p) => p.id == id);
 
-  console.log({ patientData });
-
   return (
     <>
       <Box sx={{ width: '100%', display: 'flex', mb: (theme) => theme.spacing(2) }}>
