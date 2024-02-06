@@ -36,6 +36,10 @@ const MainRoutes = {
       element: <PatientProfile />
     },
     {
+      path: '/create_user',
+      element: <h1>Create user</h1>
+    },
+    {
       path: 'sample-page-new',
       element: <SamplePageNew />
     }
