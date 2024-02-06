@@ -8,7 +8,6 @@ import { fetchPatients, selectAllpatients } from 'store/reducers/patientsSlice';
 import MainCard from 'components/MainCard';
 import Loader from 'components/Loader';
 import PatientForm from './PatientForm';
-import BreadCrumbs from 'components/BreadCrumbs';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -30,21 +29,6 @@ const PatientProfile = () => {
   return (
     <>
       <Box sx={{ width: '100%', display: 'flex', mb: (theme) => theme.spacing(2) }}>
-        <BreadCrumbs
-          items={[
-            {
-              title: 'Home',
-              url: '/'
-            },
-            {
-              title: 'Patients',
-              url: '/patients'
-            },
-            {
-              title: `${patientData.firstName} ${patientData.lastName}`
-            }
-          ]}
-        />
         <Button startIcon={<ArrowBackIcon />} sx={{ ml: 'auto' }} onClick={() => navigate('/patients')}>
           All Patients
         </Button>
