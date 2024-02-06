@@ -3,6 +3,7 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
+import PatientProfile from 'pages/patientProfile';
 
 // render - dashboard
 // const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -29,6 +30,10 @@ const MainRoutes = {
     {
       path: '/patients',
       element: <PatientsPage />
+    },
+    {
+      path: '/patients/:id',
+      element: <PatientProfile />
     },
     {
       path: 'sample-page-new',

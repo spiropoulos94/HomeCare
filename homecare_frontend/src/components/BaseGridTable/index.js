@@ -14,7 +14,8 @@ export default function BaseGridTable({
   deleteItemFunc = () => {},
   refreshData = () => {},
   hideToolbar = false,
-  sx
+  onRowClick = null,
+  sx = {}
 }) {
   const apiRef = useGridApiRef();
   const [selectMultiple, setSelectMultiple] = useState(false);
@@ -49,6 +50,16 @@ export default function BaseGridTable({
     };
   });
 
+  const clickableStyles = {
+    '.MuiDataGrid-cell:focus': {
+      outline: 'none'
+    },
+    // pointer cursor on ALL rows
+    '& .MuiDataGrid-row:hover': {
+      cursor: 'pointer'
+    }
+  };
+
   return (
     <DataGrid
       density="comfortable"
@@ -76,7 +87,8 @@ export default function BaseGridTable({
         '& .MuiDataGrid-main': {
           border: 1,
           borderColor: (theme) => theme.palette.divider
-        }
+        },
+        ...(onRowClick ? clickableStyles : {})
       }}
       autoHeight
       loading={isLoading}
@@ -110,6 +122,7 @@ export default function BaseGridTable({
       processRowUpdate={(updatedRow, originalRow) => handleProcessRowUpdate(updatedRow, originalRow)}
       onProcessRowUpdateError={(error) => alertError(error)}
       onCellEditStop={(params, event) => cancelCellEditOnFocusOut(params, event)}
+      onCellClick={onRowClick}
     />
   );
 }

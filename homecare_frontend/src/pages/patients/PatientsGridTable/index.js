@@ -1,8 +1,16 @@
 import BaseGridTable from 'components/BaseGridTable';
 import { columns } from './columns';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 const PatientsGridTable = ({ data = [], isLoading = false, failedSearchTerm = '', refreshData = null }) => {
+  const navigate = useNavigate();
+
+  const onRowClick = (data) => {
+    const { row } = data;
+    navigate(`${row.id}`, { state: row });
+  };
+
   return (
     <BaseGridTable
       data={data ?? []}
@@ -11,6 +19,7 @@ const PatientsGridTable = ({ data = [], isLoading = false, failedSearchTerm = ''
       failedSearchTerm={failedSearchTerm}
       refreshData={refreshData}
       hideToolbar={false}
+      onRowClick={onRowClick}
     />
   );
 };
