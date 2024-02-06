@@ -1,4 +1,3 @@
-import * as React from 'react';
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/material';
@@ -10,9 +9,6 @@ export default function BreadCrumbs({ items }) {
   return (
     <Box sx={{ my: (theme) => theme.spacing(2) }} role="presentation">
       <MuiBreadcrumbs aria-label="breadcrumb">
-        {/* <Link underline="hover" color="inherit" href="/">
-          MUI
-        </Link> */}
         {items.map(({ url, title, href }, index) => {
           const isLastItem = index == items.length - 1;
           return (
