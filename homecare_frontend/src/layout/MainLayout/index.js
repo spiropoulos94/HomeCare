@@ -11,7 +11,7 @@ import Drawer from './Drawer';
 import Header from './Header';
 
 // types
-import { openDrawer } from 'store/reducers/menu';
+import { openDrawer } from 'store/reducers/menuSlice';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 

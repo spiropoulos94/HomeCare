@@ -57,6 +57,8 @@ const MainCard = forwardRef(
             fontFamily: theme.typography.fontFamily,
             fontSize: '0.75rem'
           },
+          maxWidth: (theme) => theme.breakpoints.values.xl,
+          margin: 'auto',
           ...sx
         }}
       >
