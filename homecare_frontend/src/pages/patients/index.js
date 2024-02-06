@@ -9,15 +9,16 @@ import { alertError } from 'utils/toast';
 
 const Patients = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchPatients());
-  }, [dispatch]);
 
   const patients = useSelector(selectAllpatients);
   const patientsError = useSelector(getPatientsError);
   const patientsStatus = useSelector(getPatientsStatus);
 
-  console.log({ patients, patientsError, patientsStatus });
+  useEffect(() => {
+    if (!patients.length) {
+      dispatch(fetchPatients());
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     if (patientsError) {
