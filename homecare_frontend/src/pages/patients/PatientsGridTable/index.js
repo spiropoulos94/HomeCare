@@ -7,6 +7,9 @@ const PatientsGridTable = ({ data = [], isLoading = false, failedSearchTerm = ''
   const navigate = useNavigate();
 
   const onRowClick = (data) => {
+    if (data.field === '__check__') {
+      return;
+    }
     const { row } = data;
     navigate(`${row.id}`, { state: row });
   };
