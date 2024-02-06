@@ -140,7 +140,7 @@ const PatientForm = ({ patientData }) => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={4}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patient-phone">Phone</InputLabel>
                   <OutlinedInput
@@ -162,7 +162,7 @@ const PatientForm = ({ patientData }) => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={8} md={10}>
+              <Grid item xs={12} sm={4}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patient-addressStreet">Street</InputLabel>
                   <OutlinedInput
@@ -184,7 +184,7 @@ const PatientForm = ({ patientData }) => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={4} md={2}>
+              <Grid item xs={2} md={1}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patient-addressNumber">Number</InputLabel>
                   <OutlinedInput
@@ -211,11 +211,13 @@ const PatientForm = ({ patientData }) => {
                   <FormHelperText error>{errors.submit}</FormHelperText>
                 </Grid>
               )}
-              <Grid item xs={12}>
-                <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
-                  Save
-                </Button>
-              </Grid>
+              {!disableEdit && (
+                <Grid item xs={12}>
+                  <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
+                    Save
+                  </Button>
+                </Grid>
+              )}
             </Grid>
           </form>
         )}
