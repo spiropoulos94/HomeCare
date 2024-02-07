@@ -6,6 +6,7 @@ import { generateHash } from 'utils/encrypt';
 import { Box, TextField, useMediaQuery } from '@mui/material';
 import CopyButton from 'components/CopyButton';
 import { useTheme } from '@emotion/react';
+import ScrollBottom from 'components/ScrollBottom';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -31,10 +32,13 @@ const AdminUserCreate = () => {
         <AdminUserCreateForm onSubmit={generateLink} />
       </MainCard>
       {link.length ? (
-        <Box>
-          <TextField multiline sx={{ width: '100%', mt: (theme) => theme.spacing(2) }} value={link}></TextField>
-          <CopyButton title="Copy Link" value={link} sx={{ mt: (theme) => theme.spacing(2), width: matchDownMD ? '100%' : 'initial' }} />
-        </Box>
+        <>
+          <Box>
+            <TextField multiline sx={{ width: '100%', mt: (theme) => theme.spacing(2) }} value={link}></TextField>
+            <CopyButton title="Copy Link" value={link} sx={{ mt: (theme) => theme.spacing(2), width: matchDownMD ? '100%' : 'initial' }} />
+          </Box>
+          <ScrollBottom />
+        </>
       ) : null}
     </>
   );
