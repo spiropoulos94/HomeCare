@@ -9,7 +9,10 @@ import { professions } from 'constants/professions';
 
 // ============================|| ADMIN - CREATE USER ||============================ //
 
-const AdminUserCreateForm = () => {
+const AdminUserCreateForm = ({ onSubmit }) => {
+  const handleSubmit = (values) => {
+    onSubmit(values);
+  };
   return (
     <>
       <Formik
@@ -34,6 +37,7 @@ const AdminUserCreateForm = () => {
           try {
             setStatus({ success: false });
             setSubmitting(false);
+            handleSubmit(values);
           } catch (err) {
             console.error(err);
             setStatus({ success: false });
