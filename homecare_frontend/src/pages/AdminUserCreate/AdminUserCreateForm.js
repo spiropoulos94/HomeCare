@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
 import FormikCustomSelect from 'components/FormikCustomSelect';
 import { professions } from 'constants/professions';
+import PropTypes from 'prop-types';
 
 // ============================|| ADMIN - CREATE USER ||============================ //
 
@@ -169,3 +170,7 @@ const AdminUserCreateForm = ({ onSubmit }) => {
 };
 
 export default AdminUserCreateForm;
+
+AdminUserCreateForm.propTypes = {
+  onSubmit: PropTypes.func
+};

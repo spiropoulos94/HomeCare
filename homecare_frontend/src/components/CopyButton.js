@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DoneIcon from '@mui/icons-material/Done';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const CopyButton = ({ value = '', title = 'Copy', sx }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -26,3 +27,9 @@ const CopyButton = ({ value = '', title = 'Copy', sx }) => {
 };
 
 export default CopyButton;
+
+CopyButton.propTypes = {
+  value: PropTypes.string,
+  title: PropTypes.string,
+  sx: PropTypes.object
+};
