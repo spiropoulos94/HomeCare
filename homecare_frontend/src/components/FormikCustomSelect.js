@@ -1,4 +1,5 @@
 import { Select } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const FormikCustomSelect = ({ children, form, field }) => {
   const { name, value } = field;
@@ -19,3 +20,9 @@ const FormikCustomSelect = ({ children, form, field }) => {
 };
 
 export default FormikCustomSelect;
+
+FormikCustomSelect.propTypes = {
+  children: PropTypes.any,
+  form: PropTypes.object,
+  field: PropTypes.object
+};
