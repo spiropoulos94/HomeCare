@@ -2,7 +2,7 @@
 import MainCard from 'components/MainCard';
 import AdminUserCreateForm from './AdminUserCreateForm';
 import { useState } from 'react';
-import { generateHash } from 'utils/encrypt';
+import { encryptValues } from 'utils/crypto';
 import { Box, TextField, useMediaQuery } from '@mui/material';
 import CopyButton from 'components/CopyButton';
 import { useTheme } from '@emotion/react';
@@ -16,12 +16,12 @@ const AdminUserCreate = () => {
   const [link, setLink] = useState('');
 
   const generateLink = (values) => {
-    const hash = generateHash(values);
+    const hash = encryptValues(values);
     // Determine base URL based on environment
     const baseURL = process.env.NODE_ENV === 'production' ? 'https://your-production-url.com' : 'http://localhost:3000';
 
     // Construct the registration link
-    const registrationLink = `${baseURL}/register?q=${hash}`;
+    const registrationLink = `${baseURL}/register?q=${encodeURIComponent(hash)}`;
 
     return setLink(registrationLink);
   };
