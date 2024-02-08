@@ -6,6 +6,7 @@ import MainLayout from 'layout/MainLayout';
 import PatientProfile from 'pages/patients/patientProfile';
 import AdminUserCreate from 'pages/AdminUserCreate';
 import Reports from 'pages/reports';
+import ReportSingle from 'pages/reports/reportSingle';
 
 // render - dashboard
 // const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -32,6 +33,10 @@ const MainRoutes = {
     {
       path: '/reports',
       element: <Reports />
+    },
+    {
+      path: '/reports/:id',
+      element: <ReportSingle />
     },
     {
       path: '/patients',

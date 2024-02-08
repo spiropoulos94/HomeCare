@@ -14,8 +14,6 @@ const PatientsGridTable = ({ data = [], isLoading = false, failedSearchTerm = ''
     navigate(`${row.id}`, { state: row });
   };
 
-  console.log('columns report', columns);
-
   return (
     <BaseGridTable
       data={data ?? []}

@@ -27,12 +27,6 @@ const Reports = () => {
     }
   }, [reportsError]);
 
-  console.log({
-    reports,
-    reportsError,
-    reportsStatus
-  });
-
   return (
     <>
       <MainCard title="Reports">{<ReportsGridTable isLoading={reportsStatus === 'loading'} data={normalizeData(reports)} />}</MainCard>

@@ -42,7 +42,6 @@ const AdminUserCreateForm = ({ onSubmit }) => {
           profession: Yup.string().max(255).required('Profession is required')
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-          console.log('submit user create', { values });
           try {
             setStatus({ success: false });
             setSubmitting(false);

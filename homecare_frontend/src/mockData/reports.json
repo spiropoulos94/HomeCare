@@ -26,7 +26,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "18:45:00",
-    "departureTime": "21:00:00"
+    "departureTime": "21:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 2,
@@ -53,7 +54,8 @@
         "label": "Prescription"
       }
     ],
-    "absenceStatus": true
+    "absenceStatus": true,
+    "date": "2024-02-08"
   },
   {
     "reportID": 3,
@@ -82,7 +84,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "09:00:00",
-    "departureTime": "12:00:00"
+    "departureTime": "12:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 4,
@@ -111,7 +114,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "14:00:00",
-    "departureTime": "16:00:00"
+    "departureTime": "16:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 5,
@@ -138,7 +142,8 @@
         "label": "Local ministration"
       }
     ],
-    "absenceStatus": true
+    "absenceStatus": true,
+    "date": "2024-02-08"
   },
   {
     "reportID": 6,
@@ -167,7 +172,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "13:15:00",
-    "departureTime": "16:00:00"
+    "departureTime": "16:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 7,
@@ -194,7 +200,8 @@
         "label": "Sweeping/Mopping"
       }
     ],
-    "absenceStatus": true
+    "absenceStatus": true,
+    "date": "2024-02-08"
   },
   {
     "reportID": 8,
@@ -223,7 +230,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "10:30:00",
-    "departureTime": "14:00:00"
+    "departureTime": "14:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 9,
@@ -252,7 +260,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "09:30:00",
-    "departureTime": "13:00:00"
+    "departureTime": "13:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 10,
@@ -277,7 +286,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "10:00:00",
-    "departureTime": "11:30:00"
+    "departureTime": "11:30:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 11,
@@ -302,7 +312,8 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "14:00:00",
-    "departureTime": "16:00:00"
+    "departureTime": "16:00:00",
+    "date": "2024-02-08"
   },
   {
     "reportID": 12,
@@ -329,7 +340,8 @@
         "label": "Food supply"
       }
     ],
-    "absenceStatus": true
+    "absenceStatus": true,
+    "date": "2024-02-08"
   },
   {
     "reportID": 13,
@@ -354,6 +366,7 @@
     ],
     "absenceStatus": false,
     "arrivalTime": "11:00:00",
-    "departureTime": "12:30:00"
+    "departureTime": "12:30:00",
+    "date": "2024-02-08"
   }
 ]

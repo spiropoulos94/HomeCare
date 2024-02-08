@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 
 export const normalizeData = (data) => {
-  console.log('data mesa sto normaluze', data);
   return data.map((entry) => {
     return {
       id: entry.reportID,
@@ -20,11 +19,11 @@ export const normalizeData = (data) => {
 export const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   { field: 'professionalName', headerName: 'Professional Name', width: 150 },
+  { field: 'patientFullname', headerName: 'Patient FullName', width: 150 },
   { field: 'profession', headerName: 'Profession', width: 150 },
   { field: 'absence', headerName: 'Absence Status', width: 150 },
   { field: 'arrivalTime', headerName: 'Arrival Time', width: 150 },
   { field: 'departureTime', headerName: 'Departure Time', width: 150 },
-  { field: 'patientFullname', headerName: 'Patient FullName', width: 150 },
   {
     field: 'patientAddress',
     headerName: 'Patient Address',
