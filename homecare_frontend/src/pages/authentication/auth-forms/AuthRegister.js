@@ -29,9 +29,11 @@ import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 // ============================|| FIREBASE - REGISTER ||============================ //
 
-const AuthRegister = () => {
+const AuthRegister = ({ formdata = null }) => {
   const [level, setLevel] = useState();
   const [showPassword, setShowPassword] = useState(false);
+  const [presetValues, setPresetValues] = useState(null);
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -49,15 +51,26 @@ const AuthRegister = () => {
     changePassword('');
   }, []);
 
+  useEffect(() => {
+    if (formdata) {
+      setPresetValues(formdata);
+    }
+  }, [formdata]);
+
+  const fieldIsPartOfPresetValues = (field) => {
+    return Boolean(presetValues && presetValues[field]);
+  };
+
   return (
     <>
       <Formik
+        enableReinitialize
         initialValues={{
-          firstname: '',
-          lastname: '',
-          afm: '',
-          amka: '',
-          profession: '',
+          firstname: presetValues?.firstname || '',
+          lastname: presetValues?.lastname || '',
+          afm: presetValues?.afm || '',
+          amka: presetValues?.amka || '',
+          profession: presetValues?.profession || '',
           email: '',
           password: '',
 
@@ -99,7 +112,13 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="John"
                     fullWidth
+                    readOnly={fieldIsPartOfPresetValues('firstname')}
                     error={Boolean(touched.firstname && errors.firstname)}
+                    sx={{
+                      input: {
+                        cursor: 'not-allowed'
+                      }
+                    }}
                   />
                   {touched.firstname && errors.firstname && (
                     <FormHelperText error id="helper-text-firstname-signup">
@@ -122,6 +141,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="Doe"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('lastname')}
                   />
                   {touched.lastname && errors.lastname && (
                     <FormHelperText error id="helper-text-lastname-signup">
@@ -143,6 +163,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="12345678910"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('afm')}
                   />
                   {touched.afm && errors.afm && (
                     <FormHelperText error id="helper-text-afm-signup">
@@ -164,6 +185,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="12345678910"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('amka')}
                   />
                   {touched.amka && errors.amka && (
                     <FormHelperText error id="helper-text-amka-signup">
@@ -185,6 +207,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="e.g. Nurse"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('profession')}
                   />
                   {touched.profession && errors.profession && (
                     <FormHelperText error id="helper-text-profession-signup">

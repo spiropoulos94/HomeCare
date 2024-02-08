@@ -7,18 +7,19 @@ import { Grid, Stack, Typography } from '@mui/material';
 import AuthRegister from './auth-forms/AuthRegister';
 import AuthWrapper from './AuthWrapper';
 import { decryptValues } from 'utils/crypto';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // ================================|| REGISTER ||================================ //
 
 const Register = () => {
+  const [presetValues, setPresetValues] = useState({});
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const queryText = decodeURIComponent(params.get('q'));
 
   useEffect(() => {
     const decryptedValues = decryptValues(queryText);
-    console.log({ decryptedValues });
+    setPresetValues(decryptedValues);
   }, [queryText]);
 
   return (
@@ -33,7 +34,7 @@ const Register = () => {
           </Stack>
         </Grid>
         <Grid item xs={12}>
-          <AuthRegister />
+          <AuthRegister formdata={presetValues} />
         </Grid>
       </Grid>
     </AuthWrapper>
