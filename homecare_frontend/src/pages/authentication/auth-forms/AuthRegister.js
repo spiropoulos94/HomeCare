@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // material-ui
 import {
@@ -12,12 +13,13 @@ import {
   OutlinedInput,
   Stack,
   Typography,
-  Box
+  Box,
+  MenuItem
 } from '@mui/material';
 
 // third party
 import * as Yup from 'yup';
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 
 // project import
 // import FirebaseSocial from './FirebaseSocial';
@@ -26,12 +28,16 @@ import { Formik } from 'formik';
 import { strengthColor, strengthIndicator } from 'utils/password-strength';
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import FormikCustomSelect from 'components/FormikCustomSelect';
+import { professions } from 'constants/professions';
 
 // ============================|| FIREBASE - REGISTER ||============================ //
 
-const AuthRegister = () => {
+const AuthRegister = ({ formdata = null }) => {
   const [level, setLevel] = useState();
   const [showPassword, setShowPassword] = useState(false);
+  const [presetValues, setPresetValues] = useState(null);
+
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -49,15 +55,26 @@ const AuthRegister = () => {
     changePassword('');
   }, []);
 
+  useEffect(() => {
+    if (formdata) {
+      setPresetValues(formdata);
+    }
+  }, [formdata]);
+
+  const fieldIsPartOfPresetValues = (field) => {
+    return Boolean(presetValues && presetValues[field]);
+  };
+
   return (
     <>
       <Formik
+        enableReinitialize
         initialValues={{
-          firstname: '',
-          lastname: '',
-          afm: '',
-          amka: '',
-          profession: '',
+          firstname: presetValues?.firstname || '',
+          lastname: presetValues?.lastname || '',
+          afm: presetValues?.afm || '',
+          amka: presetValues?.amka || '',
+          profession: presetValues?.profession || '',
           email: '',
           password: '',
 
@@ -99,6 +116,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="John"
                     fullWidth
+                    readOnly={fieldIsPartOfPresetValues('firstname')}
                     error={Boolean(touched.firstname && errors.firstname)}
                   />
                   {touched.firstname && errors.firstname && (
@@ -122,6 +140,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="Doe"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('lastname')}
                   />
                   {touched.lastname && errors.lastname && (
                     <FormHelperText error id="helper-text-lastname-signup">
@@ -143,6 +162,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="12345678910"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('afm')}
                   />
                   {touched.afm && errors.afm && (
                     <FormHelperText error id="helper-text-afm-signup">
@@ -164,6 +184,7 @@ const AuthRegister = () => {
                     onChange={handleChange}
                     placeholder="12345678910"
                     inputProps={{}}
+                    readOnly={fieldIsPartOfPresetValues('amka')}
                   />
                   {touched.amka && errors.amka && (
                     <FormHelperText error id="helper-text-amka-signup">
@@ -173,25 +194,22 @@ const AuthRegister = () => {
                 </Stack>
               </Grid>
               <Grid item xs={12}>
-                <Stack spacing={1}>
-                  <InputLabel htmlFor="profession-signup">Profession</InputLabel>
-                  <OutlinedInput
-                    fullWidth
-                    error={Boolean(touched.profession && errors.profession)}
-                    id="profession-signup"
-                    value={values.profession}
-                    name="profession"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="e.g. Nurse"
-                    inputProps={{}}
-                  />
-                  {touched.profession && errors.profession && (
-                    <FormHelperText error id="helper-text-profession-signup">
-                      {errors.profession}
-                    </FormHelperText>
-                  )}
-                </Stack>
+                <InputLabel id="admin-user-create-simple-select-label">Profession</InputLabel>
+                <Field
+                  name="profession"
+                  component={(props) => <FormikCustomSelect readOnly={fieldIsPartOfPresetValues('profession')} {...props} />}
+                >
+                  {professions.map(({ value, label }) => (
+                    <MenuItem key={value} value={value}>
+                      {label}
+                    </MenuItem>
+                  ))}
+                </Field>
+                {touched.profession && errors.profession && (
+                  <FormHelperText error id="helper-text-profession">
+                    {errors.profession}
+                  </FormHelperText>
+                )}
               </Grid>
               <Grid item xs={12}>
                 <Stack spacing={1}>
@@ -306,3 +324,7 @@ const AuthRegister = () => {
 };
 
 export default AuthRegister;
+
+AuthRegister.propTypes = {
+  formdata: PropTypes.object
+};

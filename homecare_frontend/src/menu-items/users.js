@@ -1,9 +1,10 @@
 // assets
-import { BarsOutlined } from '@ant-design/icons';
+import { BarsOutlined, UserAddOutlined } from '@ant-design/icons';
 
 // icons
 const icons = {
-  BarsOutlined
+  BarsOutlined,
+  UserAddOutlined
 };
 
 // ==============================|| MENU ITEMS - SAMPLE PAGE & DOCUMENTATION ||============================== //
@@ -19,6 +20,13 @@ const users = {
       type: 'item',
       url: '/patients',
       icon: icons.BarsOutlined
+    },
+    {
+      id: 'createUser',
+      title: 'Create User',
+      type: 'item',
+      url: '/create_user',
+      icon: icons.UserAddOutlined
     }
   ]
 };

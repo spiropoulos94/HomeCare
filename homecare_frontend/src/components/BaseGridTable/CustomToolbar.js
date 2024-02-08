@@ -74,4 +74,9 @@ CustomToolbar.propTypes = {
   batchDelete: PropTypes.func
 };
 
+ControlsPopover.propTypes = {
+  batchDelete: PropTypes.func,
+  rowSelectionModel: PropTypes.any
+};
+
 export default CustomToolbar;

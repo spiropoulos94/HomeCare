@@ -33,6 +33,13 @@ export default function OutlinedInput(theme) {
                 border: `1px solid ${theme.palette.error.light}`
               }
             }
+          },
+          '&.Mui-readOnly': {
+            '& .MuiOutlinedInput-notchedOutline': {
+              ['pointerEvents']: 'none'
+            },
+            cursor: 'not-allowed',
+            ['pointerEvents']: 'none'
           }
         },
         inputSizeSmall: {

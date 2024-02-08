@@ -4,6 +4,7 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
 import PatientProfile from 'pages/patientProfile';
+import AdminUserCreate from 'pages/AdminUserCreate';
 
 // render - dashboard
 // const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -34,6 +35,10 @@ const MainRoutes = {
     {
       path: '/patients/:id',
       element: <PatientProfile />
+    },
+    {
+      path: '/create_user',
+      element: <AdminUserCreate />
     },
     {
       path: 'sample-page-new',
