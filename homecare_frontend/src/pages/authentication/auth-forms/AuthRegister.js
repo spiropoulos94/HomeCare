@@ -13,12 +13,13 @@ import {
   OutlinedInput,
   Stack,
   Typography,
-  Box
+  Box,
+  MenuItem
 } from '@mui/material';
 
 // third party
 import * as Yup from 'yup';
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 
 // project import
 // import FirebaseSocial from './FirebaseSocial';
@@ -27,6 +28,8 @@ import { Formik } from 'formik';
 import { strengthColor, strengthIndicator } from 'utils/password-strength';
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import FormikCustomSelect from 'components/FormikCustomSelect';
+import { professions } from 'constants/professions';
 
 // ============================|| FIREBASE - REGISTER ||============================ //
 
@@ -195,7 +198,7 @@ const AuthRegister = ({ formdata = null }) => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="profession-signup">Profession</InputLabel>
                   <OutlinedInput
@@ -216,6 +219,24 @@ const AuthRegister = ({ formdata = null }) => {
                     </FormHelperText>
                   )}
                 </Stack>
+              </Grid> */}
+              <Grid item xs={12}>
+                <InputLabel id="admin-user-create-simple-select-label">Profession</InputLabel>
+                <Field
+                  name="profession"
+                  component={(props) => <FormikCustomSelect readOnly={fieldIsPartOfPresetValues('profession')} {...props} />}
+                >
+                  {professions.map(({ value, label }) => (
+                    <MenuItem key={value} value={value}>
+                      {label}
+                    </MenuItem>
+                  ))}
+                </Field>
+                {touched.profession && errors.profession && (
+                  <FormHelperText error id="helper-text-profession">
+                    {errors.profession}
+                  </FormHelperText>
+                )}
               </Grid>
               <Grid item xs={12}>
                 <Stack spacing={1}>
