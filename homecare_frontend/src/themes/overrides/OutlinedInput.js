@@ -36,10 +36,10 @@ export default function OutlinedInput(theme) {
           },
           '&.Mui-readOnly': {
             '& .MuiOutlinedInput-notchedOutline': {
-              ['pointer-events']: 'none'
+              ['pointerEvents']: 'none'
             },
             cursor: 'not-allowed',
-            ['pointer-events']: 'none'
+            ['pointerEvents']: 'none'
           }
         },
         inputSizeSmall: {

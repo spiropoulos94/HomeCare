@@ -118,11 +118,6 @@ const AuthRegister = ({ formdata = null }) => {
                     fullWidth
                     readOnly={fieldIsPartOfPresetValues('firstname')}
                     error={Boolean(touched.firstname && errors.firstname)}
-                    sx={{
-                      input: {
-                        cursor: 'not-allowed'
-                      }
-                    }}
                   />
                   {touched.firstname && errors.firstname && (
                     <FormHelperText error id="helper-text-firstname-signup">
@@ -198,28 +193,6 @@ const AuthRegister = ({ formdata = null }) => {
                   )}
                 </Stack>
               </Grid>
-              {/* <Grid item xs={12}>
-                <Stack spacing={1}>
-                  <InputLabel htmlFor="profession-signup">Profession</InputLabel>
-                  <OutlinedInput
-                    fullWidth
-                    error={Boolean(touched.profession && errors.profession)}
-                    id="profession-signup"
-                    value={values.profession}
-                    name="profession"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="e.g. Nurse"
-                    inputProps={{}}
-                    readOnly={fieldIsPartOfPresetValues('profession')}
-                  />
-                  {touched.profession && errors.profession && (
-                    <FormHelperText error id="helper-text-profession-signup">
-                      {errors.profession}
-                    </FormHelperText>
-                  )}
-                </Stack>
-              </Grid> */}
               <Grid item xs={12}>
                 <InputLabel id="admin-user-create-simple-select-label">Profession</InputLabel>
                 <Field

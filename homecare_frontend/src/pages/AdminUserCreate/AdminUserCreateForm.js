@@ -29,8 +29,16 @@ const AdminUserCreateForm = ({ onSubmit }) => {
         validationSchema={Yup.object().shape({
           firstname: Yup.string().max(255).required('First Name is required'),
           lastname: Yup.string().max(255).required('Last Name is required'),
-          afm: Yup.string().max(255).required('AFM is required'),
-          amka: Yup.string().max(255).required('AMKA is required'),
+          afm: Yup.string()
+            .matches(/^[0-9]+$/, 'AFM must be only numbers')
+            .min(9, 'AFM must be exactly 9 digits')
+            .max(9, 'AFM must be exactly 9 digits')
+            .required('AFM is required'),
+          amka: Yup.string()
+            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+            .min(11, 'AMKA must be exactly 11 digits')
+            .max(11, 'AMKA must be exactly 11 digits')
+            .required('AMKA is required'),
           profession: Yup.string().max(255).required('Profession is required')
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
