@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 // material-ui
 import {
@@ -329,3 +330,7 @@ const AuthRegister = ({ formdata = null }) => {
 };
 
 export default AuthRegister;
+
+AuthRegister.propTypes = {
+  formdata: PropTypes.object
+};
