@@ -7,7 +7,7 @@ const FormikCustomSelect = ({ children, form, field, readOnly = false }) => {
 
   return (
     <Select
-      sx={{ border: 1, width: '100%' }}
+      sx={{ border: 1, width: '100%', mt: (theme) => theme.spacing(1) }}
       name={name}
       value={value}
       onChange={(e) => {

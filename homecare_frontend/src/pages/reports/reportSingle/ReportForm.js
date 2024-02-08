@@ -1,12 +1,14 @@
 // material-ui
-import { Button, FormHelperText, Grid, InputLabel, OutlinedInput, Stack } from '@mui/material';
+import { Button, Divider, FormHelperText, Grid, InputLabel, MenuItem, OutlinedInput, Stack } from '@mui/material';
 
 // third party
 import * as Yup from 'yup';
-import { Formik } from 'formik';
+import { Field, Formik } from 'formik';
 
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import FormikCustomSelect from 'components/form/FormikCustomSelect';
+import { professions } from 'constants/professions';
 
 // ============================|| PATIENT - FORM ||============================ //
 
@@ -27,7 +29,7 @@ const ReportForm = ({ reportData = {} }) => {
           patientHealthSecurityNumber: '',
           patientAddressStreet: '',
           patientAddressNumber: '',
-          arrivalTime: '',
+          arrivalTime: 0,
           departureTime: '',
           deliveredServices: [],
           absenceStatus: '',
@@ -39,10 +41,25 @@ const ReportForm = ({ reportData = {} }) => {
           profession: Yup.string().max(255).required('Profession is required'),
           patientFirstname: Yup.string().max(255).required(' Name is required'),
           patientLastname: Yup.string().max(255).required(' Lastname is required'),
-          patientAMKA: Yup.string().max(255).required(' AMKA is required'),
-          patientHealthSecurityNumber: Yup.string().max(255).required(' Health Security Nr is required'),
-          patientAddressStreet: Yup.string().max(255).required('Street is required'),
-          patientAddressNumber: Yup.string().max(255).required('Number is required'),
+          patientAMKA: Yup.string()
+            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+            .min(11, 'AMKA must be exactly 11 digits')
+            .max(11, 'AMKA must be exactly 11 digits')
+            .required('AMKA is required'),
+          patientHealthSecurityNumber: Yup.string()
+            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+            .min(11, 'Health Security Number must be exactly 11 digits')
+            .max(11, 'Health Security Number must be exactly 11 digits')
+            .required('Health Security Number is required'),
+          patientAddressStreet: Yup.string()
+
+            .max(255)
+            .required('Street is required'),
+          patientAddressNumber: Yup.string()
+            .matches(/^[0-9]+$/, 'Number must be only numbers')
+            .min(1, 'Min value is 1')
+            .max(9999, 'Max value is 9999')
+            .required('Number is required'),
           arrivalTime: Yup.string().max(255).required('Arrival Time is required'),
           departureTime: Yup.string().max(255).required('Departure Time is required'),
           deliveredServices: '',
@@ -63,6 +80,9 @@ const ReportForm = ({ reportData = {} }) => {
         {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Divider>Professional</Divider>
+              </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="professional-Fullname-signup">Professional&apos;s Name*</InputLabel>
@@ -85,36 +105,35 @@ const ReportForm = ({ reportData = {} }) => {
                   )}
                 </Stack>
               </Grid>
+
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="report-profession">Profession</InputLabel>
-                  <OutlinedInput
-                    readOnly={disableEdit}
-                    id="profession"
-                    type="profession"
-                    value={values.profession}
-                    name="profession"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="John"
-                    fullWidth
-                    error={Boolean(touched.profession && errors.profession)}
-                  />
+                  <Field name="profession" component={FormikCustomSelect}>
+                    {professions.map(({ value, label }) => (
+                      <MenuItem key={value} value={value}>
+                        {label}
+                      </MenuItem>
+                    ))}
+                  </Field>
                   {touched.profession && errors.profession && (
-                    <FormHelperText error id="helper-text-professionalFullname-signup">
+                    <FormHelperText error id="report-profession">
                       {errors.profession}
                     </FormHelperText>
                   )}
                 </Stack>
               </Grid>
+              <Grid item xs={12}>
+                <Divider>Patient </Divider>
+              </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="patientFirstname">Patient Name</InputLabel>
+                  <InputLabel htmlFor="patientFirstname"> Name</InputLabel>
                   <OutlinedInput
                     readOnly={disableEdit}
                     id="patientFirstname"
                     type="patientFirstname"
-                    value={values.professionalFullname}
+                    value={values.patientFirstname}
                     name="patientFirstname"
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -131,7 +150,7 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="patientLastname">Patient Lastname</InputLabel>
+                  <InputLabel htmlFor="patientLastname"> Lastname</InputLabel>
                   <OutlinedInput
                     readOnly={disableEdit}
                     id="patientLastname"
@@ -238,6 +257,9 @@ const ReportForm = ({ reportData = {} }) => {
                     </FormHelperText>
                   )}
                 </Stack>
+              </Grid>
+              <Grid item xs={12}>
+                <Divider>Visit Details</Divider>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>

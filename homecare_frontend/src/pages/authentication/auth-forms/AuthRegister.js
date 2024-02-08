@@ -28,7 +28,7 @@ import { Field, Formik } from 'formik';
 import { strengthColor, strengthIndicator } from 'utils/password-strength';
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-import FormikCustomSelect from 'components/FormikCustomSelect';
+import FormikCustomSelect from 'components/form/FormikCustomSelect';
 import { professions } from 'constants/professions';
 
 // ============================|| FIREBASE - REGISTER ||============================ //

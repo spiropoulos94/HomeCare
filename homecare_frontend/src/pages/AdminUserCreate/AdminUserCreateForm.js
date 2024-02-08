@@ -4,7 +4,7 @@ import { Button, FormHelperText, Grid, InputLabel, MenuItem, OutlinedInput, Stac
 // third party
 import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
-import FormikCustomSelect from 'components/FormikCustomSelect';
+import FormikCustomSelect from 'components/form/FormikCustomSelect';
 import { professions } from 'constants/professions';
 import PropTypes from 'prop-types';
 
