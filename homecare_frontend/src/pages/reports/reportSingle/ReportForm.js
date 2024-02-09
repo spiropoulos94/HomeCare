@@ -10,6 +10,7 @@ import { useState } from 'react';
 import FormikCustomSelect from 'components/customFormFields/FormikCustomSelectField';
 import { professions } from 'constants/professions';
 import FormikCustomTimepickerField from 'components/customFormFields/FormikCustomTimePickerField';
+import FormikCustomSwitchField from 'components/customFormFields/FormikCustomSwitchField';
 
 // ============================|| PATIENT - FORM ||============================ //
 
@@ -33,42 +34,40 @@ const ReportForm = ({ reportData = {} }) => {
           arrivalTime: undefined,
           departureTime: undefined,
           deliveredServices: [],
-          absenceStatus: '',
+          absenceStatus: true,
 
           submit: null
         }}
         validationSchema={Yup.object().shape({
-          professionalFullname: Yup.string().max(255).required('Professional Full Name is required'),
-          profession: Yup.string().max(255).required('Profession is required'),
-          patientFirstname: Yup.string().max(255).required(' Name is required'),
-          patientLastname: Yup.string().max(255).required(' Lastname is required'),
-          patientAMKA: Yup.string()
-            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
-            .min(11, 'AMKA must be exactly 11 digits')
-            .max(11, 'AMKA must be exactly 11 digits')
-            .required('AMKA is required'),
-          patientHealthSecurityNumber: Yup.string()
-            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
-            .min(11, 'Health Security Number must be exactly 11 digits')
-            .max(11, 'Health Security Number must be exactly 11 digits')
-            .required('Health Security Number is required'),
-          patientAddressStreet: Yup.string()
-
-            .max(255)
-            .required('Street is required'),
-          patientAddressNumber: Yup.string()
-            .matches(/^[0-9]+$/, 'Number must be only numbers')
-            .min(1, 'Min value is 1')
-            .max(9999, 'Max value is 9999')
-            .required('Number is required'),
-          arrivalTime: Yup.date()
-            .max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time')
-            .required('Arrival Time is required'),
-          departureTime: Yup.date()
-            .min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time')
-            .required('Departure Time is required'),
-          deliveredServices: '',
-          absenceStatus: ''
+          //   professionalFullname: Yup.string().max(255).required('Professional Full Name is required'),
+          //   profession: Yup.string().max(255).required('Profession is required'),
+          //   patientFirstname: Yup.string().max(255).required(' Name is required'),
+          //   patientLastname: Yup.string().max(255).required(' Lastname is required'),
+          //   patientAMKA: Yup.string()
+          //     .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+          //     .min(11, 'AMKA must be exactly 11 digits')
+          //     .max(11, 'AMKA must be exactly 11 digits')
+          //     .required('AMKA is required'),
+          //   patientHealthSecurityNumber: Yup.string()
+          //     .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+          //     .min(11, 'Health Security Number must be exactly 11 digits')
+          //     .max(11, 'Health Security Number must be exactly 11 digits')
+          //     .required('Health Security Number is required'),
+          //   patientAddressStreet: Yup.string()
+          //     .max(255)
+          //     .required('Street is required'),
+          //   patientAddressNumber: Yup.string()
+          //     .matches(/^[0-9]+$/, 'Number must be only numbers')
+          //     .min(1, 'Min value is 1')
+          //     .max(9999, 'Max value is 9999')
+          //     .required('Number is required'),
+          //   arrivalTime: Yup.date()
+          //     .max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time')
+          //     .required('Arrival Time is required'),
+          //   departureTime: Yup.date()
+          //     .min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time')
+          //     .required('Departure Time is required'),
+          //   deliveredServices: '',
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           console.log('Report form values', { values });
@@ -268,6 +267,23 @@ const ReportForm = ({ reportData = {} }) => {
               <Grid item xs={12}>
                 <Divider>Visit Details</Divider>
               </Grid>
+              <Grid display={'flex'} justifyContent={'end'} item xs={12}>
+                <Stack spacing={1} direction={'row'} alignItems={'center'}>
+                  <InputLabel htmlFor="report-absenceStatus">Patient was{values.absenceStatus ? '' : ' not'} at home </InputLabel>
+                  <Field name="absenceStatus" component={FormikCustomSwitchField}>
+                    {professions.map(({ value, label }) => (
+                      <MenuItem key={value} value={value}>
+                        {label}
+                      </MenuItem>
+                    ))}
+                  </Field>
+                  {touched.absenceStatus && errors.absenceStatus && (
+                    <FormHelperText error id="report-absenceStatus">
+                      {errors.absenceStatus}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="report-arrivalTime">Arrival Time </InputLabel>
@@ -309,28 +325,6 @@ const ReportForm = ({ reportData = {} }) => {
                   {touched.deliveredServices && errors.deliveredServices && (
                     <FormHelperText error id="helper-text-deliveredServices">
                       {errors.deliveredServices}
-                    </FormHelperText>
-                  )}
-                </Stack>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Stack spacing={1}>
-                  <InputLabel htmlFor="absenceStatus">Absence Status</InputLabel>
-                  <OutlinedInput
-                    readOnly={disableEdit}
-                    id="absenceStatus"
-                    type="absenceStatus"
-                    value={values.absenceStatus}
-                    name="absenceStatus"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="John"
-                    fullWidth
-                    error={Boolean(touched.absenceStatus && errors.absenceStatus)}
-                  />
-                  {touched.absenceStatus && errors.absenceStatus && (
-                    <FormHelperText error id="helper-text-absenceStatus">
-                      {errors.absenceStatus}
                     </FormHelperText>
                   )}
                 </Stack>
