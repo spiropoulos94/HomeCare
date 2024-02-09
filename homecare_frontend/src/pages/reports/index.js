@@ -29,8 +29,6 @@ const Reports = () => {
     }
   }, [reportsError]);
 
-  console.log({ reports });
-
   return (
     <>
       <MainCard title="Reports">

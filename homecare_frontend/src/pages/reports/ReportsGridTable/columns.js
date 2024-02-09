@@ -43,7 +43,6 @@ export const columns = [
       return (
         <Box display={'flex'} flexDirection={'column'}>
           {row.deliveredServices.map((service) => {
-            console.log(service);
             return <Box key={service.value}>&#8226; {service.label}</Box>;
           })}
         </Box>
