@@ -21,6 +21,9 @@ const ReportForm = ({ reportData = {} }) => {
   const [disableEdit] = useState(false);
 
   const getAvailableServices = (professionVal) => {
+    if (!professionVal) {
+      return [];
+    }
     let profession = professions.filter((p) => p.value === professionVal)[0];
     return profession.services;
   };
@@ -341,7 +344,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="deliveredServices"
                     component={(props) => (
                       <FormikCustomAutocompleteField
-                        options={getAvailableServices('doctor')}
+                        options={getAvailableServices(values.profession)}
                         placeholder="What was done during the visit"
                         disabled={Boolean(!values.absenceStatus)}
                         {...props}
