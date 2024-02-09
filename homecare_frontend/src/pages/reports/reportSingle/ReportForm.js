@@ -78,7 +78,11 @@ const ReportForm = ({ reportData = {} }) => {
             otherwise: (schema) => schema.optional()
           }),
           absenceStatus: Yup.bool().required('Absence status is required'),
-          deliveredServices: Yup.array().required('Delivered services is required').min(1, 'There must be at least 1 delivere service')
+          deliveredServices: Yup.array().when('absenceStatus', {
+            is: true,
+            then: (schema) => schema.required('Delivered services is required').min(1, 'There must be at least 1 delivered service'),
+            otherwise: (schema) => schema.optional()
+          })
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           console.log('Report form values', { values });
