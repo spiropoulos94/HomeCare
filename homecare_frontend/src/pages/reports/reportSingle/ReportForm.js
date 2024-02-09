@@ -13,7 +13,7 @@ import FormikCustomTimepickerField from 'components/customFormFields/FormikCusto
 import FormikCustomSwitchField from 'components/customFormFields/FormikCustomSwitchField';
 import FormikCustomAutocompleteField from 'components/customFormFields/FormikCustomAutocompleteField';
 
-// ============================|| PATIENT - FORM ||============================ //
+// ============================|| REPORT - FORM ||============================ //
 
 const ReportForm = ({ reportData = {} }) => {
   console.log({ reportData });
