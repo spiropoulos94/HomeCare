@@ -354,7 +354,7 @@ const ReportForm = ({ reportData = {} }) => {
 };
 
 ReportForm.propTypes = {
-  patientData: PropTypes.object
+  reportData: PropTypes.object
 };
 
 export default ReportForm;
