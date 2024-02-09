@@ -26,5 +26,6 @@ FormikCustomTimepickerField.propTypes = {
   children: PropTypes.any,
   form: PropTypes.object,
   field: PropTypes.object,
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+  disabled: PropTypes.bool
 };
