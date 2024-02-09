@@ -39,35 +39,33 @@ const ReportForm = ({ reportData = {} }) => {
           submit: null
         }}
         validationSchema={Yup.object().shape({
-          //   professionalFullname: Yup.string().max(255).required('Professional Full Name is required'),
-          //   profession: Yup.string().max(255).required('Profession is required'),
-          //   patientFirstname: Yup.string().max(255).required(' Name is required'),
-          //   patientLastname: Yup.string().max(255).required(' Lastname is required'),
-          //   patientAMKA: Yup.string()
-          //     .matches(/^[0-9]+$/, 'AMKA must be only numbers')
-          //     .min(11, 'AMKA must be exactly 11 digits')
-          //     .max(11, 'AMKA must be exactly 11 digits')
-          //     .required('AMKA is required'),
-          //   patientHealthSecurityNumber: Yup.string()
-          //     .matches(/^[0-9]+$/, 'AMKA must be only numbers')
-          //     .min(11, 'Health Security Number must be exactly 11 digits')
-          //     .max(11, 'Health Security Number must be exactly 11 digits')
-          //     .required('Health Security Number is required'),
-          //   patientAddressStreet: Yup.string()
-          //     .max(255)
-          //     .required('Street is required'),
-          //   patientAddressNumber: Yup.string()
-          //     .matches(/^[0-9]+$/, 'Number must be only numbers')
-          //     .min(1, 'Min value is 1')
-          //     .max(9999, 'Max value is 9999')
-          //     .required('Number is required'),
-          //   arrivalTime: Yup.date()
-          //     .max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time')
-          //     .required('Arrival Time is required'),
-          //   departureTime: Yup.date()
-          //     .min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time')
-          //     .required('Departure Time is required'),
-          //   deliveredServices: '',
+          professionalFullname: Yup.string().max(255).required('Professional Full Name is required'),
+          profession: Yup.string().max(255).required('Profession is required'),
+          patientFirstname: Yup.string().max(255).required(' Name is required'),
+          patientLastname: Yup.string().max(255).required(' Lastname is required'),
+          patientAMKA: Yup.string()
+            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+            .min(11, 'AMKA must be exactly 11 digits')
+            .max(11, 'AMKA must be exactly 11 digits')
+            .required('AMKA is required'),
+          patientHealthSecurityNumber: Yup.string()
+            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+            .min(11, 'Health Security Number must be exactly 11 digits')
+            .max(11, 'Health Security Number must be exactly 11 digits')
+            .required('Health Security Number is required'),
+          patientAddressStreet: Yup.string().max(255).required('Street is required'),
+          patientAddressNumber: Yup.string()
+            .matches(/^[0-9]+$/, 'Number must be only numbers')
+            .min(1, 'Min value is 1')
+            .max(9999, 'Max value is 9999')
+            .required('Number is required'),
+          arrivalTime: Yup.date()
+            .max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time')
+            .required('Arrival Time is required'),
+          departureTime: Yup.date()
+            .min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time')
+            .required('Departure Time is required'),
+          deliveredServices: ''
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           console.log('Report form values', { values });
@@ -143,7 +141,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="patientFirstname"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="e.g Nikos"
                     fullWidth
                     error={Boolean(touched.patientFirstname && errors.patientFirstname)}
                   />
@@ -165,7 +163,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="patientLastname"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="e.g. Papadopoulos"
                     fullWidth
                     error={Boolean(touched.patientLastname && errors.patientLastname)}
                   />
@@ -187,7 +185,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="patientAMKA"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="e.g. 12345678910"
                     fullWidth
                     error={Boolean(touched.patientAMKA && errors.patientAMKA)}
                   />
@@ -209,7 +207,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="patientHealthSecurityNumber"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="e.g. 12345678910"
                     fullWidth
                     error={Boolean(touched.patientHealthSecurityNumber && errors.patientHealthSecurityNumber)}
                   />
@@ -231,7 +229,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="patientAddressStreet"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="e.g Ethnikis Antistasews"
                     fullWidth
                     error={Boolean(touched.patientAddressStreet && errors.patientAddressStreet)}
                   />
@@ -253,7 +251,7 @@ const ReportForm = ({ reportData = {} }) => {
                     name="patientAddressNumber"
                     onBlur={handleBlur}
                     onChange={handleChange}
-                    placeholder="John"
+                    placeholder="e.g 12"
                     fullWidth
                     error={Boolean(touched.patientAddressNumber && errors.patientAddressNumber)}
                   />
