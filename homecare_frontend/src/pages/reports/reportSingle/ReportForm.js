@@ -290,8 +290,13 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="report-arrivalTime">Arrival Time </InputLabel>
-                  <Field name="arrivalTime" component={(props) => <FormikCustomTimepickerField {...props} />}></Field>
+                  <InputLabel htmlFor="report-arrivalTime" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                    Arrival Time{' '}
+                  </InputLabel>
+                  <Field
+                    name="arrivalTime"
+                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.absenceStatus)} {...props} />}
+                  ></Field>
                   {touched.arrivalTime && errors.arrivalTime && (
                     <FormHelperText error id="report-arrivalTime">
                       {errors.arrivalTime}
@@ -301,8 +306,13 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="report-departureTime">Departure Time </InputLabel>
-                  <Field name="departureTime" component={(props) => <FormikCustomTimepickerField {...props} />}></Field>
+                  <InputLabel htmlFor="report-departureTime" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                    Departure Time{' '}
+                  </InputLabel>
+                  <Field
+                    name="departureTime"
+                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.absenceStatus)} {...props} />}
+                  ></Field>
                   {touched.departureTime && errors.departureTime && (
                     <FormHelperText error id="report-departureTime">
                       {errors.departureTime}
@@ -313,7 +323,9 @@ const ReportForm = ({ reportData = {} }) => {
 
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="deliveredServices">Delivered Services</InputLabel>
+                  <InputLabel htmlFor="deliveredServices" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                    Delivered Services
+                  </InputLabel>
                   <OutlinedInput
                     readOnly={disableEdit}
                     id="deliveredServices"
