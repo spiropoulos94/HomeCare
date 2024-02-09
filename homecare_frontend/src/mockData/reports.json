@@ -1,6 +1,6 @@
 [
   {
-    "reportID": 1,
+    "id": 1,
     "professionalID": 12345,
     "professionalName": "Kostas Svoliantopoulos",
     "profession": "Doctor",
@@ -30,7 +30,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 2,
+    "id": 2,
     "professionalID": 12345,
     "professionalName": "Kostas Svoliantopoulos",
     "profession": "Doctor",
@@ -58,7 +58,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 3,
+    "id": 3,
     "professionalID": 54321,
     "professionalName": "Maria Papadopoulou",
     "profession": "Nurse",
@@ -88,7 +88,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 4,
+    "id": 4,
     "professionalID": 54321,
     "professionalName": "Maria Papadopoulou",
     "profession": "Nurse",
@@ -118,7 +118,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 5,
+    "id": 5,
     "professionalID": 13579,
     "professionalName": "Giannis Mitsopoulos",
     "profession": "Nurse",
@@ -146,7 +146,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 6,
+    "id": 6,
     "professionalID": 13579,
     "professionalName": "Giannis Mitsopoulos",
     "profession": "Nurse",
@@ -176,7 +176,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 7,
+    "id": 7,
     "professionalID": 24680,
     "professionalName": "Anna Karagianni",
     "profession": "Family Helper",
@@ -204,7 +204,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 8,
+    "id": 8,
     "professionalID": 24680,
     "professionalName": "Anna Karagianni",
     "profession": "Family Helper",
@@ -234,7 +234,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 9,
+    "id": 9,
     "professionalID": 11223,
     "professionalName": "Panagiotis Papadopoulos",
     "profession": "Social Worker/Psychologist",
@@ -264,7 +264,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 10,
+    "id": 10,
     "professionalID": 11223,
     "professionalName": "Panagiotis Papadopoulos",
     "profession": "Social Worker/Psychologist",
@@ -290,7 +290,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 11,
+    "id": 11,
     "professionalID": 11223,
     "professionalName": "Panagiotis Papadopoulos",
     "profession": "Social Worker/Psychologist",
@@ -316,7 +316,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 12,
+    "id": 12,
     "professionalID": 24680,
     "professionalName": "Anna Karagianni",
     "profession": "Family Helper",
@@ -344,7 +344,7 @@
     "date": "2024-02-08"
   },
   {
-    "reportID": 13,
+    "id": 13,
     "professionalID": 24680,
     "professionalName": "Anna Karagianni",
     "profession": "Family Helper",

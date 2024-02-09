@@ -24,8 +24,11 @@ const ReportSingle = () => {
     dispatch(fetchReports());
   }
 
-  // if locationState is available use it, else fetch all patients and select the right one
+  const isNewReport = location.pathname.includes('/new');
+
   let reportData = state ? state : reports.find((p) => p.id == id);
+
+  const reportTitle = isNewReport ? 'New Report' : `${reportData?.patientFullname} Report `;
 
   return (
     <>
@@ -36,8 +39,8 @@ const ReportSingle = () => {
       </Box>
 
       {reportData ? (
-        <MainCard sx={{ mt: (theme) => theme.spacing(2) }} title={`${reportData?.patientFullname} Report `}>
-          <ReportForm reportData={reportData} />
+        <MainCard sx={{ mt: (theme) => theme.spacing(2) }} title={reportTitle}>
+          <ReportForm reportData={isNewReport ? null : reportData} />
         </MainCard>
       ) : (
         <Loader />

@@ -39,6 +39,10 @@ const MainRoutes = {
       element: <ReportSingle />
     },
     {
+      path: '/reports/new',
+      element: <ReportSingle />
+    },
+    {
       path: '/patients',
       element: <PatientsPage />
     },

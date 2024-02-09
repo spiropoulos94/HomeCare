@@ -1,43 +1,40 @@
 import { Box } from '@mui/material';
 
-export const normalizeData = (data) => {
-  return data.map((entry) => {
-    return {
-      id: entry.reportID,
-      professionalName: entry.professionalName,
-      profession: entry.profession,
-      absence: entry.absenceStatus,
-      arrivalTime: entry.arrivalTime,
-      departureTime: entry.departureTime,
-      patientFullname: `${entry.patient.firstName} ${entry.patient.lastName}`,
-      patientAddress: entry.patient.address,
-      patientHealthSecurityNumber: entry.patient.healthSecurityNumber
-    };
-  });
-};
-
 export const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   { field: 'professionalName', headerName: 'Professional Name', width: 150 },
-  { field: 'patientFullname', headerName: 'Patient FullName', width: 150 },
+  {
+    field: 'patient',
+    headerName: 'Patient FullName',
+    width: 150,
+    renderCell: ({ value }) => <Box>{`${value.firstName} ${value.lastName}`}</Box>
+  },
   { field: 'profession', headerName: 'Profession', width: 150 },
-  { field: 'absence', headerName: 'Absence Status', width: 150 },
+  { field: 'absenceStatus', headerName: 'Absence Status', width: 150 },
   { field: 'arrivalTime', headerName: 'Arrival Time', width: 150 },
   { field: 'departureTime', headerName: 'Departure Time', width: 150 },
   {
     field: 'patientAddress',
+
     headerName: 'Patient Address',
     width: 150,
-    renderCell: ({ value }) => {
+    renderCell: ({ row }) => {
       return (
         <Box display={'flex'} flexDirection={'column'}>
-          <Box>{value.street}</Box>
-          <Box>{value.number}</Box>
+          <Box>{row.patient.address.street}</Box>
+          <Box>{row.patient.address.number}</Box>
         </Box>
       );
     }
   },
-  { field: 'patientHealthSecurityNumber', headerName: 'Patient Health Security Number', width: 150 }
+  {
+    field: 'patientHealthSecurityNumber',
+    headerName: 'Patient Health Security Number',
+    width: 150,
+    valueGetter: ({ row }) => {
+      return row?.patient?.healthSecurityNumber;
+    }
+  }
 
   // {
   //   field: 'address',
