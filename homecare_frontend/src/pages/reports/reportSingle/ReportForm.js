@@ -7,9 +7,9 @@ import { Field, Formik } from 'formik';
 
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import FormikCustomSelect from 'components/form/FormikCustomSelect';
+import FormikCustomSelect from 'components/customFormFields/FormikCustomSelectField';
 import { professions } from 'constants/professions';
-import FormikCustomTimepicker from 'components/form/FormikCustomTimePicker';
+import FormikCustomTimepickerField from 'components/customFormFields/FormikCustomTimePickerField';
 
 // ============================|| PATIENT - FORM ||============================ //
 
@@ -271,7 +271,7 @@ const ReportForm = ({ reportData = {} }) => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="report-arrivalTime">Arrival Time </InputLabel>
-                  <Field name="arrivalTime" component={(props) => <FormikCustomTimepicker {...props} />}></Field>
+                  <Field name="arrivalTime" component={(props) => <FormikCustomTimepickerField {...props} />}></Field>
                   {touched.arrivalTime && errors.arrivalTime && (
                     <FormHelperText error id="report-arrivalTime">
                       {errors.arrivalTime}
@@ -282,7 +282,7 @@ const ReportForm = ({ reportData = {} }) => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="report-departureTime">Departure Time </InputLabel>
-                  <Field name="departureTime" component={(props) => <FormikCustomTimepicker {...props} />}></Field>
+                  <Field name="departureTime" component={(props) => <FormikCustomTimepickerField {...props} />}></Field>
                   {touched.departureTime && errors.departureTime && (
                     <FormHelperText error id="report-departureTime">
                       {errors.departureTime}

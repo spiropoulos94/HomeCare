@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-const FormikCustomTimepicker = ({ form, field, readOnly = false }) => {
+const FormikCustomTimepickerField = ({ form, field, readOnly = false }) => {
   const { name, value } = field;
   const { setFieldValue } = form;
 
@@ -19,9 +19,9 @@ const FormikCustomTimepicker = ({ form, field, readOnly = false }) => {
   );
 };
 
-export default FormikCustomTimepicker;
+export default FormikCustomTimepickerField;
 
-FormikCustomTimepicker.propTypes = {
+FormikCustomTimepickerField.propTypes = {
   children: PropTypes.any,
   form: PropTypes.object,
   field: PropTypes.object,
