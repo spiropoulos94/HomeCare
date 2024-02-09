@@ -1,17 +1,23 @@
 import BaseGridTable from 'components/BaseGridTable';
 import { columns } from './columns';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const PatientsGridTable = ({ data = [], isLoading = false, failedSearchTerm = '', refreshData = null }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onRowClick = (data) => {
     if (data.field === '__check__') {
       return;
     }
     const { row } = data;
-    navigate(`${row.id}`, { state: row });
+
+    if (location.pathname === '/') {
+      navigate(`reports/${row.id}`, { state: row });
+    } else {
+      navigate(`${row.id}`, { state: row });
+    }
   };
 
   return (

@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import FormikCustomSelect from 'components/form/FormikCustomSelect';
 import { professions } from 'constants/professions';
+import FormikCustomTimepicker from 'components/form/FormikCustomTimePicker';
 
 // ============================|| PATIENT - FORM ||============================ //
 
@@ -29,8 +30,8 @@ const ReportForm = ({ reportData = {} }) => {
           patientHealthSecurityNumber: '',
           patientAddressStreet: '',
           patientAddressNumber: '',
-          arrivalTime: 0,
-          departureTime: '',
+          arrivalTime: undefined,
+          departureTime: undefined,
           deliveredServices: [],
           absenceStatus: '',
 
@@ -60,12 +61,17 @@ const ReportForm = ({ reportData = {} }) => {
             .min(1, 'Min value is 1')
             .max(9999, 'Max value is 9999')
             .required('Number is required'),
-          arrivalTime: Yup.string().max(255).required('Arrival Time is required'),
-          departureTime: Yup.string().max(255).required('Departure Time is required'),
+          arrivalTime: Yup.date()
+            .max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time')
+            .required('Arrival Time is required'),
+          departureTime: Yup.date()
+            .min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time')
+            .required('Departure Time is required'),
           deliveredServices: '',
           absenceStatus: ''
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+          console.log('Report form values', { values });
           try {
             setStatus({ success: false });
             setSubmitting(false);
@@ -123,6 +129,7 @@ const ReportForm = ({ reportData = {} }) => {
                   )}
                 </Stack>
               </Grid>
+
               <Grid item xs={12}>
                 <Divider>Patient </Divider>
               </Grid>
@@ -263,21 +270,10 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="arrivalTime">Arrival Time</InputLabel>
-                  <OutlinedInput
-                    readOnly={disableEdit}
-                    id="arrivalTime"
-                    type="arrivalTime"
-                    value={values.arrivalTime}
-                    name="arrivalTime"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="John"
-                    fullWidth
-                    error={Boolean(touched.arrivalTime && errors.arrivalTime)}
-                  />
+                  <InputLabel htmlFor="report-arrivalTime">Arrival Time </InputLabel>
+                  <Field name="arrivalTime" component={(props) => <FormikCustomTimepicker {...props} />}></Field>
                   {touched.arrivalTime && errors.arrivalTime && (
-                    <FormHelperText error id="helper-text-arrivalTime">
+                    <FormHelperText error id="report-arrivalTime">
                       {errors.arrivalTime}
                     </FormHelperText>
                   )}
@@ -285,26 +281,16 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="departureTime">Departure Time</InputLabel>
-                  <OutlinedInput
-                    readOnly={disableEdit}
-                    id="departureTime"
-                    type="departureTime"
-                    value={values.departureTime}
-                    name="departureTime"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="John"
-                    fullWidth
-                    error={Boolean(touched.departureTime && errors.departureTime)}
-                  />
+                  <InputLabel htmlFor="report-departureTime">Departure Time </InputLabel>
+                  <Field name="departureTime" component={(props) => <FormikCustomTimepicker {...props} />}></Field>
                   {touched.departureTime && errors.departureTime && (
-                    <FormHelperText error id="helper-text-departureTime">
+                    <FormHelperText error id="report-departureTime">
                       {errors.departureTime}
                     </FormHelperText>
                   )}
                 </Stack>
               </Grid>
+
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="deliveredServices">Delivered Services</InputLabel>
