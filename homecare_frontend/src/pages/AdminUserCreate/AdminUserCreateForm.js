@@ -4,7 +4,7 @@ import { Button, FormHelperText, Grid, InputLabel, MenuItem, OutlinedInput, Stac
 // third party
 import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
-import FormikCustomSelect from 'components/FormikCustomSelect';
+import FormikCustomSelect from 'components/customFormFields/FormikCustomSelectField';
 import { professions } from 'constants/professions';
 import PropTypes from 'prop-types';
 
@@ -42,7 +42,6 @@ const AdminUserCreateForm = ({ onSubmit }) => {
           profession: Yup.string().max(255).required('Profession is required')
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-          console.log('submit user create', { values });
           try {
             setStatus({ success: false });
             setSubmitting(false);

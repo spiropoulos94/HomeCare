@@ -5,9 +5,10 @@ import { combineReducers } from 'redux';
 import menu from './menuSlice';
 import cocktails from './cocktailsSlice';
 import patients from './patientsSlice';
+import reports from './reportsSlice';
 
 // ==============================|| COMBINE REDUCERS ||============================== //
 
-const reducers = combineReducers({ menu, cocktails, patients });
+const reducers = combineReducers({ menu, cocktails, patients, reports });
 
 export default reducers;

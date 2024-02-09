@@ -1,0 +1,372 @@
+[
+  {
+    "reportID": 1,
+    "professionalID": 12345,
+    "professionalName": "Kostas Svoliantopoulos",
+    "profession": "Doctor",
+    "patient": {
+      "firstName": "Nikos",
+      "lastName": "Spiropoulos",
+      "amka": "12345678911",
+      "healthSecurityNumber": "123456789",
+      "address": {
+        "street": "Panepistimiou",
+        "number": "277"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "prescription",
+        "label": "Prescription"
+      },
+      {
+        "value": "catheterize",
+        "label": "Catheterize"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "18:45:00",
+    "departureTime": "21:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 2,
+    "professionalID": 12345,
+    "professionalName": "Kostas Svoliantopoulos",
+    "profession": "Doctor",
+    "patient": {
+      "firstName": "Maria",
+      "lastName": "Papadopoulou",
+      "amka": "98765432122",
+      "healthSecurityNumber": "987654321",
+      "address": {
+        "street": "Aristotelous",
+        "number": "123"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "clinical_examination",
+        "label": "Clinical Examination"
+      },
+      {
+        "value": "prescription",
+        "label": "Prescription"
+      }
+    ],
+    "absenceStatus": true,
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 3,
+    "professionalID": 54321,
+    "professionalName": "Maria Papadopoulou",
+    "profession": "Nurse",
+    "patient": {
+      "firstName": "Eleni",
+      "lastName": "Papadimitriou",
+      "amka": "98765432111",
+      "healthSecurityNumber": "987654321",
+      "address": {
+        "street": "Aristotelous",
+        "number": "123"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "body_wash",
+        "label": "Body wash"
+      },
+      {
+        "value": "measure_vital_points",
+        "label": "Measurement of vital points"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "09:00:00",
+    "departureTime": "12:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 4,
+    "professionalID": 54321,
+    "professionalName": "Maria Papadopoulou",
+    "profession": "Nurse",
+    "patient": {
+      "firstName": "Giannis",
+      "lastName": "Papadopoulos",
+      "amka": "11122233311",
+      "healthSecurityNumber": "111222333",
+      "address": {
+        "street": "Solonos",
+        "number": "456"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "intramuscular_injections",
+        "label": "Intramuscular injections"
+      },
+      {
+        "value": "sores_injury_treatment",
+        "label": "Sores - Injury treatment"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "14:00:00",
+    "departureTime": "16:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 5,
+    "professionalID": 13579,
+    "professionalName": "Giannis Mitsopoulos",
+    "profession": "Nurse",
+    "patient": {
+      "firstName": "Vasiliki",
+      "lastName": "Nikolaidou",
+      "amka": "98765432122",
+      "healthSecurityNumber": "987654322",
+      "address": {
+        "street": "Leoforos Alexandras",
+        "number": "789"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "intramuscular_injections",
+        "label": "Intramuscular injections"
+      },
+      {
+        "value": "local_ministration",
+        "label": "Local ministration"
+      }
+    ],
+    "absenceStatus": true,
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 6,
+    "professionalID": 13579,
+    "professionalName": "Giannis Mitsopoulos",
+    "profession": "Nurse",
+    "patient": {
+      "firstName": "Vasiliki",
+      "lastName": "Nikolaidou",
+      "amka": "98765432122",
+      "healthSecurityNumber": "987654322",
+      "address": {
+        "street": "Leoforos Alexandras",
+        "number": "789"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "intramuscular_injections",
+        "label": "Intramuscular injections"
+      },
+      {
+        "value": "local_ministration",
+        "label": "Local ministration"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "13:15:00",
+    "departureTime": "16:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 7,
+    "professionalID": 24680,
+    "professionalName": "Anna Karagianni",
+    "profession": "Family Helper",
+    "patient": {
+      "firstName": "Alexandros",
+      "lastName": "Georgiou",
+      "amka": "12398765422",
+      "healthSecurityNumber": "123987654",
+      "address": {
+        "street": "Kifisias",
+        "number": "654"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "meal_preparation",
+        "label": "Meal preparation"
+      },
+      {
+        "value": "sweeping_mopping",
+        "label": "Sweeping/Mopping"
+      }
+    ],
+    "absenceStatus": true,
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 8,
+    "professionalID": 24680,
+    "professionalName": "Anna Karagianni",
+    "profession": "Family Helper",
+    "patient": {
+      "firstName": "Alexandros",
+      "lastName": "Georgiou",
+      "amka": "12398765422",
+      "healthSecurityNumber": "123987654",
+      "address": {
+        "street": "Kifisias",
+        "number": "654"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "meal_preparation",
+        "label": "Meal preparation"
+      },
+      {
+        "value": "sweeping_mopping",
+        "label": "Sweeping/Mopping"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "10:30:00",
+    "departureTime": "14:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 9,
+    "professionalID": 11223,
+    "professionalName": "Panagiotis Papadopoulos",
+    "profession": "Social Worker/Psychologist",
+    "patient": {
+      "firstName": "Maria",
+      "lastName": "Papandreou",
+      "amka": "11122233344",
+      "healthSecurityNumber": "111222333",
+      "address": {
+        "street": "Vouliagmenis",
+        "number": "321"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "psychological_social_support",
+        "label": "Psychological, Social support"
+      },
+      {
+        "value": "orientation_elders_rights",
+        "label": "Orientation to elders for their rights"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "09:30:00",
+    "departureTime": "13:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 10,
+    "professionalID": 11223,
+    "professionalName": "Panagiotis Papadopoulos",
+    "profession": "Social Worker/Psychologist",
+    "patient": {
+      "firstName": "Alexandros",
+      "lastName": "Papadopoulos",
+      "amka": "44455566611",
+      "healthSecurityNumber": "444555666",
+      "address": {
+        "street": "Leoforos Kifisias",
+        "number": "987"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "contact_appropriate_agency",
+        "label": "Support contacting the appropriate agency"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "10:00:00",
+    "departureTime": "11:30:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 11,
+    "professionalID": 11223,
+    "professionalName": "Panagiotis Papadopoulos",
+    "profession": "Social Worker/Psychologist",
+    "patient": {
+      "firstName": "Marina",
+      "lastName": "Kontou",
+      "amka": "55566677711",
+      "healthSecurityNumber": "555666777",
+      "address": {
+        "street": "Leoforos Mesogeion",
+        "number": "456"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "efka_documentation_submission",
+        "label": "EFKA medical documentation submission"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "14:00:00",
+    "departureTime": "16:00:00",
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 12,
+    "professionalID": 24680,
+    "professionalName": "Anna Karagianni",
+    "profession": "Family Helper",
+    "patient": {
+      "firstName": "Vasilis",
+      "lastName": "Georgiou",
+      "amka": "99988877711",
+      "healthSecurityNumber": "999888777",
+      "address": {
+        "street": "Leoforos Syngrou",
+        "number": "789"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "yard_cleaning",
+        "label": "Yard Cleaning"
+      },
+      {
+        "value": "food_supply",
+        "label": "Food supply"
+      }
+    ],
+    "absenceStatus": true,
+    "date": "2024-02-08"
+  },
+  {
+    "reportID": 13,
+    "professionalID": 24680,
+    "professionalName": "Anna Karagianni",
+    "profession": "Family Helper",
+    "patient": {
+      "firstName": "Nikoleta",
+      "lastName": "Papadopoulou",
+      "amka": "11122233311",
+      "healthSecurityNumber": "111222333",
+      "address": {
+        "street": "Leoforos Vouliagmenis",
+        "number": "654"
+      }
+    },
+    "deliveredServices": [
+      {
+        "value": "other",
+        "label": "Other"
+      }
+    ],
+    "absenceStatus": false,
+    "arrivalTime": "11:00:00",
+    "departureTime": "12:30:00",
+    "date": "2024-02-08"
+  }
+]

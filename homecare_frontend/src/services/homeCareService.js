@@ -1,5 +1,6 @@
 import { setupApiInstance } from './api';
 import patientsMockData from '../mockData/patients.json';
+import reportsMockData from '../mockData/reports.json';
 
 const BackendClient = setupApiInstance({
   baseURL: `https://localhost:8080`, // this is a proxy to the narrowin server
@@ -39,6 +40,14 @@ export const getPatientsMock = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(patientsMockData);
+    }, 1000);
+  });
+};
+
+export const getReportsMock = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(reportsMockData);
     }, 1000);
   });
 };

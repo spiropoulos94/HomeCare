@@ -1,13 +1,13 @@
 import { Select } from '@mui/material';
 import PropTypes from 'prop-types';
 
-const FormikCustomSelect = ({ children, form, field, readOnly = false }) => {
+const FormikCustomSelectField = ({ children, form, field, readOnly = false }) => {
   const { name, value } = field;
   const { setFieldValue } = form;
 
   return (
     <Select
-      sx={{ border: 1, width: '100%' }}
+      sx={{ width: '100%', mt: (theme) => theme.spacing(1) }}
       name={name}
       value={value}
       onChange={(e) => {
@@ -21,9 +21,9 @@ const FormikCustomSelect = ({ children, form, field, readOnly = false }) => {
   );
 };
 
-export default FormikCustomSelect;
+export default FormikCustomSelectField;
 
-FormikCustomSelect.propTypes = {
+FormikCustomSelectField.propTypes = {
   children: PropTypes.any,
   form: PropTypes.object,
   field: PropTypes.object,
