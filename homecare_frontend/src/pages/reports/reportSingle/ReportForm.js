@@ -59,12 +59,22 @@ const ReportForm = ({ reportData = {} }) => {
             .min(1, 'Min value is 1')
             .max(9999, 'Max value is 9999')
             .required('Number is required'),
-          arrivalTime: Yup.date()
-            .max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time')
-            .required('Arrival Time is required'),
-          departureTime: Yup.date()
-            .min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time')
-            .required('Departure Time is required'),
+          arrivalTime: Yup.date().when('absenceStatus', {
+            is: true,
+            then: (schema) =>
+              schema.max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time').required('Arrival Time is required'),
+            otherwise: (schema) => schema.optional()
+          }),
+          departureTime: Yup.date().when('absenceStatus', {
+            is: true,
+            then: (schema) => schema.required('Departure Time is required'),
+            otherwise: (schema) => schema.optional()
+          }),
+          //   departureTime: Yup.date().when('absenceStatus', {
+          //     is: true,
+          //     then: Yup.date().min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time').required('Departure Time is required')
+          //   }),
+          absenceStatus: Yup.bool().required('Absence status is required'),
           deliveredServices: ''
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
