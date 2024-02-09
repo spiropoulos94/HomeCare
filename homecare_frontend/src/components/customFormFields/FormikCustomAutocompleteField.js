@@ -13,13 +13,13 @@ const FormikCustomAutocompleteField = ({
   const { name, value } = field;
   const { setFieldValue } = form;
 
-  console.log({ name, value, setFieldValue, options });
-
   return (
     <>
       <Autocomplete
+        onChange={(e, newValue) => setFieldValue(name, newValue)}
         readOnly={readOnly}
         disabled={disabled}
+        value={value}
         multiple
         id="tags-standard"
         options={options}
