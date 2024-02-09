@@ -70,10 +70,6 @@ const ReportForm = ({ reportData = {} }) => {
             then: (schema) => schema.required('Departure Time is required'),
             otherwise: (schema) => schema.optional()
           }),
-          //   departureTime: Yup.date().when('absenceStatus', {
-          //     is: true,
-          //     then: Yup.date().min(Yup.ref('arrivalTime'), 'Arrival Time must be after Departure Time').required('Departure Time is required')
-          //   }),
           absenceStatus: Yup.bool().required('Absence status is required'),
           deliveredServices: ''
         })}
