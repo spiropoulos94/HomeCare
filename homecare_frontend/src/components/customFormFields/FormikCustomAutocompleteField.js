@@ -24,7 +24,7 @@ const FormikCustomAutocompleteField = ({
         id="tags-standard"
         options={options}
         getOptionLabel={(option) => option.label}
-        renderInput={(params) => <TextField {...params} variant="standard" placeholder={placeholder} />}
+        renderInput={(params) => <TextField {...params} variant="outlined" size="small" placeholder={placeholder} />}
       />
     </>
   );
