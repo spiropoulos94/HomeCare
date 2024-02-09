@@ -34,6 +34,21 @@ export const columns = [
     valueGetter: ({ row }) => {
       return row?.patient?.healthSecurityNumber;
     }
+  },
+  {
+    field: 'deliveredServices',
+    headerName: 'Services',
+    width: 250,
+    renderCell: ({ row }) => {
+      return (
+        <Box display={'flex'} flexDirection={'column'}>
+          {row.deliveredServices.map((service) => {
+            console.log(service);
+            return <Box key={service.value}>&#8226; {service.label}</Box>;
+          })}
+        </Box>
+      );
+    }
   }
 
   // {
