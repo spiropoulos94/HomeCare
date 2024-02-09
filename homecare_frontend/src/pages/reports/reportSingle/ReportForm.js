@@ -11,6 +11,7 @@ import FormikCustomSelect from 'components/customFormFields/FormikCustomSelectFi
 import { professions } from 'constants/professions';
 import FormikCustomTimepickerField from 'components/customFormFields/FormikCustomTimePickerField';
 import FormikCustomSwitchField from 'components/customFormFields/FormikCustomSwitchField';
+import FormikCustomAutocompleteField from 'components/customFormFields/FormikCustomAutocompleteField';
 
 // ============================|| PATIENT - FORM ||============================ //
 
@@ -19,9 +20,15 @@ const ReportForm = ({ reportData = {} }) => {
 
   const [disableEdit] = useState(false);
 
+  const getAvailableServices = (professionVal) => {
+    let profession = professions.filter((p) => p.value === professionVal)[0];
+    return profession.services;
+  };
+
   return (
     <>
       <Formik
+        enableReinitialize
         initialValues={{
           professionalFullname: '',
           profession: '',
@@ -33,8 +40,8 @@ const ReportForm = ({ reportData = {} }) => {
           patientAddressNumber: '',
           arrivalTime: undefined,
           departureTime: undefined,
-          deliveredServices: [],
           absenceStatus: true,
+          deliveredServices: [],
 
           submit: null
         }}
@@ -71,7 +78,7 @@ const ReportForm = ({ reportData = {} }) => {
             otherwise: (schema) => schema.optional()
           }),
           absenceStatus: Yup.bool().required('Absence status is required'),
-          deliveredServices: ''
+          deliveredServices: Yup.array().required('Delivered services is required').min(1, 'There must be at least 1 delivere service')
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           console.log('Report form values', { values });
@@ -323,23 +330,22 @@ const ReportForm = ({ reportData = {} }) => {
 
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="deliveredServices" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
-                    Delivered Services
+                  <InputLabel htmlFor="report-deliveredServices" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                    Delivered Services{' '}
                   </InputLabel>
-                  <OutlinedInput
-                    readOnly={disableEdit}
-                    id="deliveredServices"
-                    type="deliveredServices"
-                    value={values.deliveredServices}
+                  <Field
                     name="deliveredServices"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="John"
-                    fullWidth
-                    error={Boolean(touched.deliveredServices && errors.deliveredServices)}
-                  />
+                    component={(props) => (
+                      <FormikCustomAutocompleteField
+                        options={getAvailableServices('doctor')}
+                        placeholder="What was done during the visit"
+                        disabled={Boolean(!values.absenceStatus)}
+                        {...props}
+                      />
+                    )}
+                  ></Field>
                   {touched.deliveredServices && errors.deliveredServices && (
-                    <FormHelperText error id="helper-text-deliveredServices">
+                    <FormHelperText error id="report-deliveredServices">
                       {errors.deliveredServices}
                     </FormHelperText>
                   )}
