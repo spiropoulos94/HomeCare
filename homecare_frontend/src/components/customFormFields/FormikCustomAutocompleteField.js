@@ -38,5 +38,6 @@ FormikCustomAutocompleteField.propTypes = {
   field: PropTypes.object,
   readOnly: PropTypes.bool,
   disabled: PropTypes.bool,
-  options: PropTypes.array
+  options: PropTypes.array,
+  placeholder: PropTypes.string
 };
