@@ -11,7 +11,7 @@ const FormikCustomSwitchField = ({ form, field, readOnly = false }) => {
         onChange={(newValue) => {
           setFieldValue(name, newValue?.target?.checked);
         }}
-        readOnly={readOnly}
+        disabled={readOnly}
         checked={value}
       />
     </>

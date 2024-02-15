@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { Field, Formik } from 'formik';
 
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FormikCustomSelect from 'components/customFormFields/FormikCustomSelectField';
 import { professions } from 'constants/professions';
 import FormikCustomTimepickerField from 'components/customFormFields/FormikCustomTimePickerField';
@@ -17,7 +17,7 @@ import { stringToDayJSObject } from 'utils/dateTime';
 // ============================|| REPORT - FORM ||============================ //
 
 const ReportForm = ({ reportData = null }) => {
-  const [disableEdit] = useState(false);
+  const [isReadOnly, setIsReadOnly] = useState(false);
 
   const getAvailableServices = (professionVal) => {
     if (!professionVal) {
@@ -26,6 +26,10 @@ const ReportForm = ({ reportData = null }) => {
     let profession = professions.filter((p) => p.value === professionVal || p.label === professionVal)[0];
     return profession.services;
   };
+
+  useEffect(() => {
+    setIsReadOnly(Boolean(reportData));
+  }, [reportData]);
 
   const initialValues = reportData
     ? {
@@ -127,7 +131,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="professional-Fullname-signup">Professional&apos;s Name*</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="professionalFullname"
                     type="professionalFullname"
                     value={values.professionalFullname}
@@ -149,7 +153,7 @@ const ReportForm = ({ reportData = null }) => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="report-profession">Profession</InputLabel>
-                  <Field name="profession" component={FormikCustomSelect}>
+                  <Field name="profession" component={(props) => <FormikCustomSelect {...props} readOnly={isReadOnly} />}>
                     {professions.map(({ value, label }) => (
                       <MenuItem key={value} value={value}>
                         {label}
@@ -171,7 +175,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patientFirstname"> Name</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="patientFirstname"
                     type="patientFirstname"
                     value={values.patientFirstname}
@@ -193,7 +197,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patientLastname"> Lastname</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="patientLastname"
                     type="patientLastname"
                     value={values.patientLastname}
@@ -215,7 +219,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patientAMKA">AMKA</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="patientAMKA"
                     type="patientAMKA"
                     value={values.patientAMKA}
@@ -237,7 +241,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patientHealthSecurityNumber">Health Security Number</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="patientHealthSecurityNumber"
                     type="patientHealthSecurityNumber"
                     value={values.patientHealthSecurityNumber}
@@ -259,7 +263,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patientAddressStreet">Street</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="patientAddressStreet"
                     type="patientAddressStreet"
                     value={values.patientAddressStreet}
@@ -281,7 +285,7 @@ const ReportForm = ({ reportData = null }) => {
                 <Stack spacing={1}>
                   <InputLabel htmlFor="patientAddressNumber">Number</InputLabel>
                   <OutlinedInput
-                    readOnly={disableEdit}
+                    readOnly={isReadOnly}
                     id="patientAddressNumber"
                     type="patientAddressNumber"
                     value={values.patientAddressNumber}
@@ -305,7 +309,7 @@ const ReportForm = ({ reportData = null }) => {
               <Grid display={'flex'} justifyContent={'end'} item xs={12}>
                 <Stack spacing={1} direction={'row'} alignItems={'center'}>
                   <InputLabel htmlFor="report-isPresent">Patient was{values.isPresent ? '' : ' not'} at home </InputLabel>
-                  <Field name="isPresent" component={FormikCustomSwitchField}>
+                  <Field name="isPresent" component={(props) => <FormikCustomSwitchField {...props} readOnly={isReadOnly} />}>
                     {professions.map(({ value, label }) => (
                       <MenuItem key={value} value={value}>
                         {label}
@@ -326,7 +330,9 @@ const ReportForm = ({ reportData = null }) => {
                   </InputLabel>
                   <Field
                     name="arrivalTime"
-                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.isPresent)} {...props} />}
+                    component={(props) => (
+                      <FormikCustomTimepickerField disabled={Boolean(!values.isPresent)} readOnly={isReadOnly} {...props} />
+                    )}
                   ></Field>
                   {touched.arrivalTime && errors.arrivalTime && (
                     <FormHelperText error id="report-arrivalTime">
@@ -342,7 +348,9 @@ const ReportForm = ({ reportData = null }) => {
                   </InputLabel>
                   <Field
                     name="departureTime"
-                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.isPresent)} {...props} />}
+                    component={(props) => (
+                      <FormikCustomTimepickerField disabled={Boolean(!values.isPresent)} readOnly={isReadOnly} {...props} />
+                    )}
                   ></Field>
                   {touched.departureTime && errors.departureTime && (
                     <FormHelperText error id="report-departureTime">
@@ -378,7 +386,7 @@ const ReportForm = ({ reportData = null }) => {
 
               {/* old values */}
 
-              {!disableEdit && (
+              {!isReadOnly && (
                 <Grid item xs={12}>
                   <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
                     Save
