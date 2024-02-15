@@ -12,6 +12,7 @@ import Header from './Header';
 
 // types
 import { openDrawer } from 'store/reducers/menuSlice';
+import { drawerWidth } from 'config';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
@@ -42,11 +43,13 @@ const MainLayout = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [drawerOpen]);
 
+  const mainViewWidth = open ? `calc(100% - ${drawerWidth}px)` : '100%';
+
   return (
     <Box sx={{ display: 'flex', width: '100%' }}>
       <Header open={open} handleDrawerToggle={handleDrawerToggle} />
       <Drawer open={open} handleDrawerToggle={handleDrawerToggle} />
-      <Box component="main" sx={{ width: '100%', flexGrow: 1, p: { xs: 2, sm: 3 } }}>
+      <Box component="main" sx={{ width: mainViewWidth, flexGrow: 1, p: { xs: 2, sm: 3 } }}>
         <Toolbar />
         <Outlet />
       </Box>
