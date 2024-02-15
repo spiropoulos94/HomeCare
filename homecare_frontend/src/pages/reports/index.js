@@ -29,11 +29,19 @@ const Reports = () => {
     }
   }, [reportsError]);
 
+  const goToNestedPath = (path) => {
+    if (location.pathname === '/') {
+      navigate(`reports/${path}`);
+    } else {
+      navigate(`${path}`);
+    }
+  };
+
   return (
     <>
       <MainCard title="Reports">
         <Box mb={(theme) => theme.spacing(2)} display={'flex'} justifyContent={'end'}>
-          <Button onClick={() => navigate('new')} startIcon={<FileAddOutlined />} variant="contained" color="success">
+          <Button onClick={() => goToNestedPath('new')} startIcon={<FileAddOutlined />} variant="contained" color="success">
             Create Report
           </Button>
         </Box>

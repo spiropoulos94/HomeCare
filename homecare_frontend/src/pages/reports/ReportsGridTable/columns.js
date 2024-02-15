@@ -3,19 +3,21 @@ import { Box } from '@mui/material';
 export const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   { field: 'professionalName', headerName: 'Professional Name', width: 150 },
+  { field: 'date', headerName: 'Date', width: 150 },
   {
     field: 'patient',
     headerName: 'Patient FullName',
     width: 150,
     renderCell: ({ value }) => <Box>{`${value.firstName} ${value.lastName}`}</Box>
   },
-  { field: 'profession', headerName: 'Profession', width: 150 },
-  { field: 'absenceStatus', headerName: 'Absence Status', width: 150 },
-  { field: 'arrivalTime', headerName: 'Arrival Time', width: 150 },
-  { field: 'departureTime', headerName: 'Departure Time', width: 150 },
+  {
+    field: 'profession',
+    headerName: 'Profession',
+    width: 150,
+    valueGetter: ({ value }) => value.label
+  },
   {
     field: 'patientAddress',
-
     headerName: 'Patient Address',
     width: 150,
     renderCell: ({ row }) => {
@@ -35,6 +37,9 @@ export const columns = [
       return row?.patient?.healthSecurityNumber;
     }
   },
+  { field: 'isPresent', headerName: 'Patient Present', width: 150, valueGetter: ({ value }) => (value ? 'Yes' : 'No') },
+  { field: 'arrivalTime', headerName: 'Arrival Time', width: 150 },
+  { field: 'departureTime', headerName: 'Departure Time', width: 150 },
   {
     field: 'deliveredServices',
     headerName: 'Services',
@@ -42,7 +47,7 @@ export const columns = [
     renderCell: ({ row }) => {
       return (
         <Box display={'flex'} flexDirection={'column'}>
-          {row.deliveredServices.map((service) => {
+          {row?.deliveredServices?.map((service) => {
             return <Box key={service.value}>&#8226; {service.label}</Box>;
           })}
         </Box>

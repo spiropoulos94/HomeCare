@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Autocomplete from '@mui/material/Autocomplete';
 import { TextField } from '@mui/material';
+import { useEffect } from 'react';
 
 const FormikCustomAutocompleteField = ({
   options = [],
@@ -13,14 +14,24 @@ const FormikCustomAutocompleteField = ({
   const { name, value } = field;
   const { setFieldValue } = form;
 
+  console.log({ value });
+
+  useEffect(() => {
+    console.log('value mesa sto AutoComplete', value);
+  }, [value]);
+
   return (
     <>
       <Autocomplete
         onChange={(e, newValue) => setFieldValue(name, newValue)}
         readOnly={readOnly}
         disabled={disabled}
-        value={value}
+        value={value || []}
         multiple
+        isOptionEqualToValue={(option, value) => {
+          console.log({ option, value });
+          return option.value === value.value;
+        }}
         id="tags-standard"
         options={options}
         getOptionLabel={(option) => option.label}

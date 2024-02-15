@@ -12,80 +12,97 @@ import { professions } from 'constants/professions';
 import FormikCustomTimepickerField from 'components/customFormFields/FormikCustomTimePickerField';
 import FormikCustomSwitchField from 'components/customFormFields/FormikCustomSwitchField';
 import FormikCustomAutocompleteField from 'components/customFormFields/FormikCustomAutocompleteField';
+import { stringToDayJSObject } from 'utils/dateTime';
 
 // ============================|| REPORT - FORM ||============================ //
 
-const ReportForm = ({ reportData = {} }) => {
-  console.log({ reportData });
-
+const ReportForm = ({ reportData = null }) => {
   const [disableEdit] = useState(false);
 
   const getAvailableServices = (professionVal) => {
     if (!professionVal) {
       return [];
     }
-    let profession = professions.filter((p) => p.value === professionVal)[0];
+    let profession = professions.filter((p) => p.value === professionVal || p.label === professionVal)[0];
     return profession.services;
   };
+
+  const initialValues = reportData
+    ? {
+        professionalFullname: reportData.professionalName,
+        profession: reportData.profession?.value,
+        patientFirstname: reportData?.patient?.firstName,
+        patientLastname: reportData?.patient?.lastName,
+        patientAMKA: reportData?.patient?.amka,
+        patientHealthSecurityNumber: reportData?.patient?.healthSecurityNumber,
+        patientAddressStreet: reportData?.patient?.address?.street,
+        patientAddressNumber: reportData?.patient?.address?.number,
+        arrivalTime: stringToDayJSObject(`${reportData?.date} ${reportData?.arrivalTime}`),
+        departureTime: stringToDayJSObject(`${reportData?.date} ${reportData?.departureTime}`),
+        isPresent: reportData?.isPresent,
+        deliveredServices: reportData?.deliveredServices
+      }
+    : {
+        professionalFullname: '',
+        profession: '',
+        patientFirstname: '',
+        patientLastname: '',
+        patientAMKA: '',
+        patientHealthSecurityNumber: '',
+        patientAddressStreet: '',
+        patientAddressNumber: '',
+        arrivalTime: undefined,
+        departureTime: undefined,
+        isPresent: true,
+        deliveredServices: []
+      };
 
   return (
     <>
       <Formik
         enableReinitialize
         initialValues={{
-          professionalFullname: '',
-          profession: '',
-          patientFirstname: '',
-          patientLastname: '',
-          patientAMKA: '',
-          patientHealthSecurityNumber: '',
-          patientAddressStreet: '',
-          patientAddressNumber: '',
-          arrivalTime: undefined,
-          departureTime: undefined,
-          absenceStatus: true,
-          deliveredServices: [],
-
+          ...initialValues,
           submit: null
         }}
         validationSchema={Yup.object().shape({
-          professionalFullname: Yup.string().max(255).required('Professional Full Name is required'),
-          profession: Yup.string().max(255).required('Profession is required'),
-          patientFirstname: Yup.string().max(255).required(' Name is required'),
-          patientLastname: Yup.string().max(255).required(' Lastname is required'),
-          patientAMKA: Yup.string()
-            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
-            .min(11, 'AMKA must be exactly 11 digits')
-            .max(11, 'AMKA must be exactly 11 digits')
-            .required('AMKA is required'),
-          patientHealthSecurityNumber: Yup.string()
-            .matches(/^[0-9]+$/, 'AMKA must be only numbers')
-            .min(11, 'Health Security Number must be exactly 11 digits')
-            .max(11, 'Health Security Number must be exactly 11 digits')
-            .required('Health Security Number is required'),
-          patientAddressStreet: Yup.string().max(255).required('Street is required'),
-          patientAddressNumber: Yup.string()
-            .matches(/^[0-9]+$/, 'Number must be only numbers')
-            .min(1, 'Min value is 1')
-            .max(9999, 'Max value is 9999')
-            .required('Number is required'),
-          arrivalTime: Yup.date().when('absenceStatus', {
-            is: true,
-            then: (schema) =>
-              schema.max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time').required('Arrival Time is required'),
-            otherwise: (schema) => schema.optional()
-          }),
-          departureTime: Yup.date().when('absenceStatus', {
-            is: true,
-            then: (schema) => schema.required('Departure Time is required'),
-            otherwise: (schema) => schema.optional()
-          }),
-          absenceStatus: Yup.bool().required('Absence status is required'),
-          deliveredServices: Yup.array().when('absenceStatus', {
-            is: true,
-            then: (schema) => schema.required('Delivered services is required').min(1, 'There must be at least 1 delivered service'),
-            otherwise: (schema) => schema.optional()
-          })
+          // professionalFullname: Yup.string().max(255).required('Professional Full Name is required'),
+          // profession: Yup.string().max(255).required('Profession is required'),
+          // patientFirstname: Yup.string().max(255).required(' Name is required'),
+          // patientLastname: Yup.string().max(255).required(' Lastname is required'),
+          // patientAMKA: Yup.string()
+          //   .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+          //   .min(11, 'AMKA must be exactly 11 digits')
+          //   .max(11, 'AMKA must be exactly 11 digits')
+          //   .required('AMKA is required'),
+          // patientHealthSecurityNumber: Yup.string()
+          //   .matches(/^[0-9]+$/, 'AMKA must be only numbers')
+          //   .min(11, 'Health Security Number must be exactly 11 digits')
+          //   .max(11, 'Health Security Number must be exactly 11 digits')
+          //   .required('Health Security Number is required'),
+          // patientAddressStreet: Yup.string().max(255).required('Street is required'),
+          // patientAddressNumber: Yup.string()
+          //   .matches(/^[0-9]+$/, 'Number must be only numbers')
+          //   .min(1, 'Min value is 1')
+          //   .max(9999, 'Max value is 9999')
+          //   .required('Number is required'),
+          // arrivalTime: Yup.date().when('isPresent', {
+          //   is: true,
+          //   then: (schema) =>
+          //     schema.max(Yup.ref('departureTime'), 'Arrival Time must be before Departure Time').required('Arrival Time is required'),
+          //   otherwise: (schema) => schema.optional()
+          // }),
+          // departureTime: Yup.date().when('isPresent', {
+          //   is: true,
+          //   then: (schema) => schema.required('Departure Time is required'),
+          //   otherwise: (schema) => schema.optional()
+          // }),
+          // isPresent: Yup.bool().required('Absence status is required'),
+          // deliveredServices: Yup.array().when('isPresent', {
+          //   is: true,
+          //   then: (schema) => schema.required('Delivered services is required').min(1, 'There must be at least 1 delivered service'),
+          //   otherwise: (schema) => schema.optional()
+          // })
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           console.log('Report form values', { values });
@@ -287,29 +304,29 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid display={'flex'} justifyContent={'end'} item xs={12}>
                 <Stack spacing={1} direction={'row'} alignItems={'center'}>
-                  <InputLabel htmlFor="report-absenceStatus">Patient was{values.absenceStatus ? '' : ' not'} at home </InputLabel>
-                  <Field name="absenceStatus" component={FormikCustomSwitchField}>
+                  <InputLabel htmlFor="report-isPresent">Patient was{values.isPresent ? '' : ' not'} at home </InputLabel>
+                  <Field name="isPresent" component={FormikCustomSwitchField}>
                     {professions.map(({ value, label }) => (
                       <MenuItem key={value} value={value}>
                         {label}
                       </MenuItem>
                     ))}
                   </Field>
-                  {touched.absenceStatus && errors.absenceStatus && (
-                    <FormHelperText error id="report-absenceStatus">
-                      {errors.absenceStatus}
+                  {touched.isPresent && errors.isPresent && (
+                    <FormHelperText error id="report-isPresent">
+                      {errors.isPresent}
                     </FormHelperText>
                   )}
                 </Stack>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="report-arrivalTime" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                  <InputLabel htmlFor="report-arrivalTime" sx={{ textDecoration: values.isPresent ? '' : 'line-through' }}>
                     Arrival Time{' '}
                   </InputLabel>
                   <Field
                     name="arrivalTime"
-                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.absenceStatus)} {...props} />}
+                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.isPresent)} {...props} />}
                   ></Field>
                   {touched.arrivalTime && errors.arrivalTime && (
                     <FormHelperText error id="report-arrivalTime">
@@ -320,12 +337,12 @@ const ReportForm = ({ reportData = {} }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="report-departureTime" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                  <InputLabel htmlFor="report-departureTime" sx={{ textDecoration: values.isPresent ? '' : 'line-through' }}>
                     Departure Time{' '}
                   </InputLabel>
                   <Field
                     name="departureTime"
-                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.absenceStatus)} {...props} />}
+                    component={(props) => <FormikCustomTimepickerField disabled={Boolean(!values.isPresent)} {...props} />}
                   ></Field>
                   {touched.departureTime && errors.departureTime && (
                     <FormHelperText error id="report-departureTime">
@@ -337,16 +354,16 @@ const ReportForm = ({ reportData = {} }) => {
 
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="report-deliveredServices" sx={{ textDecoration: values.absenceStatus ? '' : 'line-through' }}>
+                  <InputLabel htmlFor="report-deliveredServices" sx={{ textDecoration: values.isPresent ? '' : 'line-through' }}>
                     Delivered Services{' '}
                   </InputLabel>
                   <Field
                     name="deliveredServices"
                     component={(props) => (
                       <FormikCustomAutocompleteField
-                        options={getAvailableServices(values.profession)}
+                        options={getAvailableServices(values.profession) || []}
                         placeholder="What was done during the visit"
-                        disabled={Boolean(!values.absenceStatus)}
+                        disabled={Boolean(!values.isPresent)}
                         {...props}
                       />
                     )}

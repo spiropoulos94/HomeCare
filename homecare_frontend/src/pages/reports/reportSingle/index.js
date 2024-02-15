@@ -6,8 +6,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MainCard from 'components/MainCard';
 import Loader from 'components/Loader';
-// import PatientForm from './PatientForm';
-import { fetchReports, selectAllReports } from 'store/reducers/reportsSlice';
+import { fetchReports, getReportsStatus, selectAllReports } from 'store/reducers/reportsSlice';
 import ReportForm from './ReportForm';
 
 // ==============================|| SAMPLE PAGE ||============================== //
@@ -19,16 +18,20 @@ const ReportSingle = () => {
   const { state } = useLocation();
 
   const reports = useSelector(selectAllReports);
-
-  if (!reports.length) {
-    dispatch(fetchReports());
-  }
+  const reportsStatus = useSelector(getReportsStatus);
 
   const isNewReport = location.pathname.includes('/new');
 
-  let reportData = state ? state : reports.find((p) => p.id == id);
+  if (!reports.length && !isNewReport) {
+    dispatch(fetchReports());
+  }
 
-  const reportTitle = isNewReport ? 'New Report' : `${reportData?.patientFullname} Report `;
+  // if isNewReport then no report data are passed, otherwise retrieve them from location state or redux
+  let reportData = isNewReport ? null : state ? state : reports.find((p) => p.id == id);
+
+  const reportTitle = isNewReport
+    ? 'New Report'
+    : `${reportData?.patient?.firstName} ${reportData?.patient?.lastName} report - ${reportData?.date}`;
 
   return (
     <>
@@ -38,7 +41,7 @@ const ReportSingle = () => {
         </Button>
       </Box>
 
-      {reportData ? (
+      {reportsStatus !== 'loading' ? (
         <MainCard sx={{ mt: (theme) => theme.spacing(2) }} title={reportTitle}>
           <ReportForm reportData={isNewReport ? null : reportData} />
         </MainCard>
