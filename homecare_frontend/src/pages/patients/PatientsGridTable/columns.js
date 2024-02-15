@@ -4,7 +4,7 @@ export const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   { field: 'firstName', headerName: 'Name', width: 150 },
   { field: 'lastName', headerName: 'Surname', width: 150 },
-  { field: 'AMKA', headerName: 'AMKA', width: 150 },
+  { field: 'amka', headerName: 'AMKA', width: 150 },
   {
     field: 'address',
     headerName: 'Address',

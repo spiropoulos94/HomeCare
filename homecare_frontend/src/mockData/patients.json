@@ -3,7 +3,7 @@
     "id": 1,
     "firstName": "Viole",
     "lastName": "Prahm",
-    "AMKA": "2425733485",
+    "amka": "2425733485",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -15,7 +15,7 @@
     "id": 2,
     "firstName": "Kaylee",
     "lastName": "Playle",
-    "AMKA": "5833434157",
+    "amka": "5833434157",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -27,7 +27,7 @@
     "id": 3,
     "firstName": "Ericka",
     "lastName": "Ingram",
-    "AMKA": "9205640255",
+    "amka": "9205640255",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -39,7 +39,7 @@
     "id": 4,
     "firstName": "Crosby",
     "lastName": "Stapforth",
-    "AMKA": "7622361968",
+    "amka": "7622361968",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -51,7 +51,7 @@
     "id": 5,
     "firstName": "Dasi",
     "lastName": "Kitchingham",
-    "AMKA": "3506867377",
+    "amka": "3506867377",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -63,7 +63,7 @@
     "id": 6,
     "firstName": "Maude",
     "lastName": "Edie",
-    "AMKA": "5269082144",
+    "amka": "5269082144",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -75,7 +75,7 @@
     "id": 7,
     "firstName": "Tawsha",
     "lastName": "Hardwin",
-    "AMKA": "4599146382",
+    "amka": "4599146382",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -87,7 +87,7 @@
     "id": 8,
     "firstName": "Netti",
     "lastName": "Salan",
-    "AMKA": "4747508384",
+    "amka": "4747508384",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -99,7 +99,7 @@
     "id": 9,
     "firstName": "Weider",
     "lastName": "McGaffey",
-    "AMKA": "4538447498",
+    "amka": "4538447498",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -111,7 +111,7 @@
     "id": 10,
     "firstName": "Timmi",
     "lastName": "Trenbay",
-    "AMKA": "4509757719",
+    "amka": "4509757719",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -123,7 +123,7 @@
     "id": 11,
     "firstName": "Cloe",
     "lastName": "Burdess",
-    "AMKA": "9897122222",
+    "amka": "9897122222",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -135,7 +135,7 @@
     "id": 12,
     "firstName": "Huey",
     "lastName": "Llewelly",
-    "AMKA": "2065668350",
+    "amka": "2065668350",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -147,7 +147,7 @@
     "id": 13,
     "firstName": "Iggie",
     "lastName": "Longbothom",
-    "AMKA": "0637393309",
+    "amka": "0637393309",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -159,7 +159,7 @@
     "id": 14,
     "firstName": "Mimi",
     "lastName": "Landsman",
-    "AMKA": "6261408602",
+    "amka": "6261408602",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -171,7 +171,7 @@
     "id": 15,
     "firstName": "Rock",
     "lastName": "Baress",
-    "AMKA": "6544774693",
+    "amka": "6544774693",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -183,7 +183,7 @@
     "id": 16,
     "firstName": "Meier",
     "lastName": "Gebhardt",
-    "AMKA": "7348993826",
+    "amka": "7348993826",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -195,7 +195,7 @@
     "id": 17,
     "firstName": "Fax",
     "lastName": "Hartrick",
-    "AMKA": "4499980437",
+    "amka": "4499980437",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -207,7 +207,7 @@
     "id": 18,
     "firstName": "Veronike",
     "lastName": "Rasmus",
-    "AMKA": "9193794886",
+    "amka": "9193794886",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -219,7 +219,7 @@
     "id": 19,
     "firstName": "Seward",
     "lastName": "Spearett",
-    "AMKA": "1349663832",
+    "amka": "1349663832",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -231,7 +231,7 @@
     "id": 20,
     "firstName": "Idalina",
     "lastName": "Spadollini",
-    "AMKA": "1932399003",
+    "amka": "1932399003",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -243,7 +243,7 @@
     "id": 21,
     "firstName": "Katrinka",
     "lastName": "Dockreay",
-    "AMKA": "9619923456",
+    "amka": "9619923456",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -255,7 +255,7 @@
     "id": 22,
     "firstName": "Stephani",
     "lastName": "Lemery",
-    "AMKA": "5998158954",
+    "amka": "5998158954",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -267,7 +267,7 @@
     "id": 23,
     "firstName": "Dian",
     "lastName": "De la Yglesia",
-    "AMKA": "4446734318",
+    "amka": "4446734318",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -279,7 +279,7 @@
     "id": 24,
     "firstName": "Heida",
     "lastName": "Jonuzi",
-    "AMKA": "6715116164",
+    "amka": "6715116164",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -291,7 +291,7 @@
     "id": 25,
     "firstName": "Saul",
     "lastName": "Gettens",
-    "AMKA": "1429626461",
+    "amka": "1429626461",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -303,7 +303,7 @@
     "id": 26,
     "firstName": "Merrily",
     "lastName": "Ivanshintsev",
-    "AMKA": "6472094446",
+    "amka": "6472094446",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -315,7 +315,7 @@
     "id": 27,
     "firstName": "Erroll",
     "lastName": "Oertzen",
-    "AMKA": "7768142314",
+    "amka": "7768142314",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -327,7 +327,7 @@
     "id": 28,
     "firstName": "Lauree",
     "lastName": "Eddie",
-    "AMKA": "3945219078",
+    "amka": "3945219078",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -339,7 +339,7 @@
     "id": 29,
     "firstName": "Gilemette",
     "lastName": "Corten",
-    "AMKA": "9601917985",
+    "amka": "9601917985",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -351,7 +351,7 @@
     "id": 30,
     "firstName": "Coleman",
     "lastName": "Twort",
-    "AMKA": "5651729852",
+    "amka": "5651729852",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -363,7 +363,7 @@
     "id": 31,
     "firstName": "Magda",
     "lastName": "Karpfen",
-    "AMKA": "0633210455",
+    "amka": "0633210455",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -375,7 +375,7 @@
     "id": 32,
     "firstName": "Marnia",
     "lastName": "Alben",
-    "AMKA": "0426502043",
+    "amka": "0426502043",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -387,7 +387,7 @@
     "id": 33,
     "firstName": "Keith",
     "lastName": "Powelee",
-    "AMKA": "8961966847",
+    "amka": "8961966847",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -399,7 +399,7 @@
     "id": 34,
     "firstName": "Iago",
     "lastName": "Bohea",
-    "AMKA": "2907939343",
+    "amka": "2907939343",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -411,7 +411,7 @@
     "id": 35,
     "firstName": "Petey",
     "lastName": "Cressar",
-    "AMKA": "7962847263",
+    "amka": "7962847263",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -423,7 +423,7 @@
     "id": 36,
     "firstName": "Mirabel",
     "lastName": "Szymanzyk",
-    "AMKA": "7105620498",
+    "amka": "7105620498",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -435,7 +435,7 @@
     "id": 37,
     "firstName": "Reagen",
     "lastName": "Josefs",
-    "AMKA": "7473639021",
+    "amka": "7473639021",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -447,7 +447,7 @@
     "id": 38,
     "firstName": "Mariele",
     "lastName": "Kubica",
-    "AMKA": "0288703693",
+    "amka": "0288703693",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -459,7 +459,7 @@
     "id": 39,
     "firstName": "Celestia",
     "lastName": "Meere",
-    "AMKA": "7171959902",
+    "amka": "7171959902",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -471,7 +471,7 @@
     "id": 40,
     "firstName": "Kelby",
     "lastName": "Treharne",
-    "AMKA": "8000121794",
+    "amka": "8000121794",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -483,7 +483,7 @@
     "id": 41,
     "firstName": "Drusie",
     "lastName": "Wewell",
-    "AMKA": "1749381060",
+    "amka": "1749381060",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -495,7 +495,7 @@
     "id": 42,
     "firstName": "Issy",
     "lastName": "Fernando",
-    "AMKA": "7333825191",
+    "amka": "7333825191",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -507,7 +507,7 @@
     "id": 43,
     "firstName": "Maryanna",
     "lastName": "Hoffmann",
-    "AMKA": "5834267750",
+    "amka": "5834267750",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -519,7 +519,7 @@
     "id": 44,
     "firstName": "Devon",
     "lastName": "Taillard",
-    "AMKA": "5197309482",
+    "amka": "5197309482",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -531,7 +531,7 @@
     "id": 45,
     "firstName": "Lilli",
     "lastName": "Dressel",
-    "AMKA": "8929160077",
+    "amka": "8929160077",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -543,7 +543,7 @@
     "id": 46,
     "firstName": "Rockwell",
     "lastName": "Jaxon",
-    "AMKA": "2033284867",
+    "amka": "2033284867",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -555,7 +555,7 @@
     "id": 47,
     "firstName": "Chrissie",
     "lastName": "Heartfield",
-    "AMKA": "6260581378",
+    "amka": "6260581378",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -567,7 +567,7 @@
     "id": 48,
     "firstName": "Thorstein",
     "lastName": "Stewart",
-    "AMKA": "9624398933",
+    "amka": "9624398933",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -579,7 +579,7 @@
     "id": 49,
     "firstName": "Nadeen",
     "lastName": "Ashbrook",
-    "AMKA": "3879142459",
+    "amka": "3879142459",
     "address": {
       "street": "Fake Street",
       "number": 7
@@ -591,7 +591,7 @@
     "id": 50,
     "firstName": "Vladimir",
     "lastName": "Howells",
-    "AMKA": "6771809277",
+    "amka": "6771809277",
     "address": {
       "street": "Fake Street",
       "number": 7

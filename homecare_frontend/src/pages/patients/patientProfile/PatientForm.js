@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 // ============================|| PATIENT - FORM ||============================ //
 
 const PatientForm = ({ patientData }) => {
-  const { AMKA, address, firstName, lastName, healthSecurityNumber, phone } = patientData;
+  const { amka, address, firstName, lastName, healthSecurityNumber, phone } = patientData;
 
   const [disableEdit] = useState(true);
 
@@ -25,7 +25,7 @@ const PatientForm = ({ patientData }) => {
           addressStreet: address.street,
           addressNumber: address.number,
           phone: phone,
-          AMKA: AMKA,
+          amka: amka,
 
           submit: null
         }}
@@ -36,7 +36,7 @@ const PatientForm = ({ patientData }) => {
           addressStreet: Yup.string().max(255).required('Address is required'),
           addressNumber: Yup.string().max(255).required('Address number is required'),
           phone: Yup.string().min(9).max(16).required('Phone number is not valid'),
-          AMKA: Yup.string().max(255).required('AMKA is required')
+          amka: Yup.string().max(255).required('amka is required')
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
@@ -122,22 +122,22 @@ const PatientForm = ({ patientData }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="patient-AMKA">AMKA</InputLabel>
+                  <InputLabel htmlFor="patient-amka">amka</InputLabel>
                   <OutlinedInput
                     readOnly={disableEdit}
                     fullWidth
-                    error={Boolean(touched.AMKA && errors.AMKA)}
-                    id="patient-AMKA"
-                    value={values.AMKA}
-                    name="AMKA"
+                    error={Boolean(touched.amka && errors.amka)}
+                    id="patient-amka"
+                    value={values.amka}
+                    name="amka"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     placeholder="12345678910"
                     inputProps={{}}
                   />
-                  {touched.AMKA && errors.AMKA && (
-                    <FormHelperText error id="helper-text-patient-AMKA">
-                      {errors.AMKA}
+                  {touched.amka && errors.amka && (
+                    <FormHelperText error id="helper-text-patient-amka">
+                      {errors.amka}
                     </FormHelperText>
                   )}
                 </Stack>
