@@ -308,7 +308,6 @@ const ReportForm = ({ reportData = null }) => {
               </Grid>
               <Grid display={'flex'} justifyContent={'start'} item xs={12}>
                 <Stack spacing={1} direction={'row'} alignItems={'center'}>
-                  <InputLabel htmlFor="report-isPresent">Patient was{values.isPresent ? '' : ' not'} at home </InputLabel>
                   {!isReadOnly && (
                     <Field name="isPresent" component={FormikCustomSwitchField}>
                       {professions.map(({ value, label }) => (
@@ -318,6 +317,8 @@ const ReportForm = ({ reportData = null }) => {
                       ))}
                     </Field>
                   )}
+                  <InputLabel htmlFor="report-isPresent">Patient was{values.isPresent ? '' : ' not'} at home </InputLabel>
+
                   {touched.isPresent && errors.isPresent && (
                     <FormHelperText error id="report-isPresent">
                       {errors.isPresent}
