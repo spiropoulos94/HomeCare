@@ -2,6 +2,7 @@ import { Grid, InputLabel, OutlinedInput, Stack, FormHelperText, MenuItem } from
 import FormikCustomSelectField from 'components/customFormFields/FormikCustomSelectField';
 import { professions } from 'constants/professions';
 import { Field } from 'formik';
+import PropTypes from 'prop-types';
 
 const ProfessionalSection = ({ values, touched, errors, handleBlur, handleChange, isReadOnly }) => {
   return (
@@ -50,3 +51,12 @@ const ProfessionalSection = ({ values, touched, errors, handleBlur, handleChange
 };
 
 export default ProfessionalSection;
+
+ProfessionalSection.propTypes = {
+  values: PropTypes.object,
+  touched: PropTypes.object,
+  errors: PropTypes.object,
+  isReadOnly: PropTypes.bool,
+  handleBlur: PropTypes.func,
+  handleChange: PropTypes.func
+};

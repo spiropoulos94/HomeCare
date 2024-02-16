@@ -1,4 +1,5 @@
 import { Grid, InputLabel, OutlinedInput, Stack, FormHelperText } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const PatientSection = ({ values, touched, errors, handleBlur, handleChange, isReadOnly }) => {
   return (
@@ -137,6 +138,15 @@ const PatientSection = ({ values, touched, errors, handleBlur, handleChange, isR
       </Grid>
     </>
   );
+};
+
+PatientSection.propTypes = {
+  values: PropTypes.object,
+  touched: PropTypes.object,
+  errors: PropTypes.object,
+  isReadOnly: PropTypes.bool,
+  handleBlur: PropTypes.func,
+  handleChange: PropTypes.func
 };
 
 export default PatientSection;

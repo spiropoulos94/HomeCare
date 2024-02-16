@@ -4,6 +4,7 @@ import FormikCustomSwitchField from 'components/customFormFields/FormikCustomSwi
 import FormikCustomTimepickerField from 'components/customFormFields/FormikCustomTimePickerField';
 import { professions } from 'constants/professions';
 import { Field } from 'formik';
+import PropTypes from 'prop-types';
 
 const VisitDetailsSection = ({ values, touched, errors, isReadOnly }) => {
   const getAvailableServices = (professionVal) => {
@@ -93,6 +94,13 @@ const VisitDetailsSection = ({ values, touched, errors, isReadOnly }) => {
       </Grid>
     </>
   );
+};
+
+VisitDetailsSection.propTypes = {
+  values: PropTypes.object,
+  touched: PropTypes.object,
+  errors: PropTypes.object,
+  isReadOnly: PropTypes.bool
 };
 
 export default VisitDetailsSection;
